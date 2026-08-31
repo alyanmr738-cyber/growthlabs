@@ -4,7 +4,7 @@ import { PillButton } from "@/components/ui/PillButton";
 
 export function Hero() {
   return (
-    <section id="signal" className="relative min-h-svh">
+    <section id="signal" className="relative min-h-svh scroll-mt-24">
       <div className="flex min-h-svh flex-col justify-between px-4 pb-8 pt-28 sm:px-8 lg:px-14">
         <div className="mx-auto w-full max-w-[1400px]">
           <p className="font-mono text-sm">
@@ -14,10 +14,12 @@ export function Hero() {
           </p>
           <h1 className="display mt-10 max-w-[16ch] text-ink">{hero.h1}</h1>
           <p className="mt-8 max-w-xl text-base leading-7 text-muted sm:text-lg">{hero.lede}</p>
+          <div className="mt-12">
+            <PillButton href={cta.primary.href}>{cta.primary.label}</PillButton>
+          </div>
         </div>
         <div className="mx-auto w-full max-w-[1400px]">
-          <PillButton href={cta.primary.href}>{cta.primary.label}</PillButton>
-          <LiveMeta className="mt-5" />
+          <LiveMeta />
         </div>
       </div>
     </section>

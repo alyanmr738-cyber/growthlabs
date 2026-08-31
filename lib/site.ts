@@ -16,10 +16,11 @@ export const nav = [
 ] as const;
 
 export const overlayMenu = [
-  { n: "01", href: "/#signal", label: "Signal", tag: "START" },
-  { n: "02", href: "/#work", label: "Offer", tag: "WHAT WE SELL" },
-  { n: "03", href: "/#join", label: "Process", tag: "HOW IT HELPS" },
-  { n: "04", href: "/#contact", label: "Contact", tag: null },
+  { n: "01", href: "/#signal", label: "Signal", tag: "DIRECTION" },
+  { n: "02", href: "/#work", label: "Work", tag: null },
+  { n: "03", href: "/#practice", label: "Practice", tag: null },
+  { n: "04", href: "/#about", label: "About", tag: null },
+  { n: "05", href: "/#contact", label: "Contact", tag: null },
 ] as const;
 
 export const cta = {
