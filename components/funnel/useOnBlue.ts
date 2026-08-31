@@ -14,8 +14,7 @@ export function useOnBlue() {
       const workVisible = workBox
         ? workBox.top < window.innerHeight * 0.78 && workBox.bottom > 72
         : false;
-      const rail = document.body.dataset.rail === "1";
-      setOn((rail || workVisible) && joinTop > 96);
+      setOn(workVisible && joinTop > 96);
     };
     sync();
     window.addEventListener("scroll", sync, { passive: true });

@@ -12,15 +12,6 @@
   --accent-2: #1d39f5;
   --paper-dark: #0c0404;
   --line: rgba(18, 18, 16, 0.12);
-  --rail-left: max(0.85rem, 12vw);
-  --rail-w: 2.85rem;
-}
-
-@media (min-width: 768px) {
-  :root {
-    --rail-left: max(1.25rem, 18vw);
-    --rail-w: 5.75rem;
-  }
 }
 
 @theme inline {
@@ -82,15 +73,6 @@ body {
 
 .hairline {
   border-color: var(--line);
-}
-
-.rail {
-  left: var(--rail-left);
-  width: var(--rail-w);
-}
-
-.knockout-clip {
-  clip-path: inset(0 calc(100% - var(--rail-left) - var(--rail-w)) 0 var(--rail-left));
 }
 
 .marquee-track {
