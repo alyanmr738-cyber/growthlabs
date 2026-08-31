@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { GlowCard } from "@/components/ui/GlowCard";
 import { PillButton } from "@/components/ui/PillButton";
 import { Section } from "@/components/ui/Section";
 import { Accordion } from "@/components/ui/Accordion";
@@ -35,89 +34,95 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <JsonLd data={faqJsonLd(service.faq)} />
-      <section className="hero-atmosphere px-5 pb-12 pt-16 sm:px-8 sm:pt-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.22em] text-accent">{service.name}</p>
-          <h1 className="mt-4 font-display text-4xl font-black leading-tight text-white sm:text-5xl md:text-6xl">
-            {service.h1}
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-slate-300">{service.lede}</p>
-          <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-            <PillButton href="/book" size="lg">
-              Book a strategy call
-            </PillButton>
-            <PillButton href="/services" variant="ghost" size="lg">
+      <section className="px-4 pb-12 pt-28 sm:px-8 lg:px-14">
+        <div className="mx-auto max-w-[1400px]">
+          <p className="font-mono text-sm">
+            <span className="text-accent">01</span> / {service.name}
+          </p>
+          <h1 className="display mt-6 max-w-4xl">{service.h1}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">{service.lede}</p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:gap-10">
+            <PillButton href="/book">Book a strategy call</PillButton>
+            <PillButton href="/services" variant="ghost">
               All services
             </PillButton>
           </div>
         </div>
       </section>
 
-      <Section center={false} className="pt-8">
-        <p className="mx-auto max-w-3xl text-base leading-8 text-slate-300">{service.body}</p>
+      <Section index="02 / Brief" title="What this actually is">
+        <p className="max-w-3xl text-base leading-8 text-dim">{service.body}</p>
       </Section>
 
-      <Section eyebrow="How we work" title="The process" body="Six steps from first conversation to a live, tested system.">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <Section index="03 / Process" title="The process" body="Six steps from first conversation to a live, tested system.">
+        <ol>
           {service.process.map((step, i) => (
-            <GlowCard key={step.title} className="p-6">
-              <p className="font-display text-sm font-extrabold text-accent">
-                {String(i + 1).padStart(2, "0")}
-              </p>
-              <h2 className="mt-2 font-display text-xl font-bold text-white">{step.title}</h2>
-              <p className="mt-2 text-sm leading-6 text-muted">{step.body}</p>
-            </GlowCard>
+            <li key={step.title} className="grid gap-3 border-t border-ink/10 py-7 last:border-b md:grid-cols-[72px_240px_1fr]">
+              <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <h2 className="text-xl tracking-tight">{step.title}</h2>
+              <p className="text-sm leading-7 text-muted">{step.body}</p>
+            </li>
           ))}
-        </div>
+        </ol>
       </Section>
 
-      <Section eyebrow="What you get" title="Deliverables, not mystery retainers">
-        <div className="grid gap-5 md:grid-cols-3">
+      <Section index="04 / Deliverables" title="What you get">
+        <div className="grid gap-0 border-t border-ink/10 md:grid-cols-3">
           {service.deliverables.map((block) => (
-            <GlowCard key={block.title} className="p-7">
-              <h3 className="font-display text-xl font-extrabold text-white">{block.title}</h3>
+            <div key={block.title} className="border-b border-ink/10 p-6 md:border-r md:last:border-r-0">
+              <h3 className="text-xl tracking-tight">{block.title}</h3>
               <ul className="mt-4 space-y-2">
                 {block.items.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm text-slate-300">
-                    <span className="text-accent">✓</span>
+                  <li key={item} className="text-sm text-muted">
+                    <span className="text-accent">/ </span>
                     {item}
                   </li>
                 ))}
               </ul>
-            </GlowCard>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="How we partner" title="Our guarantees">
-        <div className="grid gap-4 md:grid-cols-3">
+      <Section index="05 / Partner" title="Our guarantees">
+        <div className="grid border-t border-ink/10 md:grid-cols-3">
           {service.guarantees.map((g) => (
-            <GlowCard key={g.title} className="p-7">
-              <h3 className="font-display text-lg font-bold text-white">{g.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-muted">{g.body}</p>
-            </GlowCard>
+            <div key={g.title} className="border-b border-ink/10 p-6 md:border-r md:last:border-r-0">
+              <h3 className="text-lg tracking-tight">{g.title}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">{g.body}</p>
+            </div>
           ))}
         </div>
       </Section>
 
-      <Section eyebrow="FAQ" title={`Questions about ${service.name}`}>
-        <div className="mx-auto max-w-3xl">
+      <Section index="06 / FAQ" title={`Questions about ${service.name}`}>
+        <div className="max-w-3xl">
           <Accordion items={service.faq} />
         </div>
       </Section>
 
       {related.length ? (
-        <Section eyebrow="Keep going" title="Related systems">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {related.map((r) => (
-              <Link key={r.slug} href={`/services/${r.slug}`} prefetch>
-                <GlowCard className="h-full p-6">
-                  <h3 className="font-display font-bold text-white">{r.name}</h3>
-                  <p className="mt-2 text-sm text-muted">{r.short}</p>
-                </GlowCard>
-              </Link>
+        <Section index="07 / Related" title="Keep going">
+          <ul>
+            {related.map((r, i) => (
+              <li key={r.slug}>
+                <Link
+                  href={`/services/${r.slug}`}
+                  prefetch
+                  className="flex items-center justify-between gap-4 border-t border-ink/10 py-6 last:border-b"
+                >
+                  <span className="flex items-center gap-4">
+                    <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+                    <span>
+                      <span className="block text-xl tracking-tight">{r.name}</span>
+                      <span className="text-sm text-muted">{r.short}</span>
+                    </span>
+                  </span>
+                  <span className="text-accent">↗</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </Section>
       ) : null}
 

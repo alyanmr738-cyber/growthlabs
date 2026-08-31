@@ -14,7 +14,9 @@ export const metadata: Metadata = {
 export default function FaqPage() {
   return (
     <>
-      <FaqSection title="Site-wide questions" />
+      <div className="pt-24">
+        <FaqSection title="Site-wide questions" />
+      </div>
       {services.map((s) => (
         <Section key={s.slug} eyebrow={s.name} title={`${s.name} FAQ`} className="pt-4">
           <div className="mx-auto max-w-3xl">

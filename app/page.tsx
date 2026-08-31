@@ -21,11 +21,11 @@ export default function Home() {
       <Marquee />
       <FadeIn>
         <Section
-          eyebrow="The numbers that matter"
+          index="02 / Numbers"
           title="Speed, coverage, one stack"
           body="Placeholders until your live metrics drop in. The promise stays the same."
         >
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3 md:gap-12">
             {stats.map((s) => (
               <StatCard key={s.label} {...s} />
             ))}

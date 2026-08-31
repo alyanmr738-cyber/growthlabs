@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <Section center={false} eyebrow="Legal" title="Terms">
+    <Section className="pt-28" index="01 / Legal" title="Terms">
       <div className="mx-auto max-w-3xl space-y-6 text-sm leading-7 text-muted">
         <p>
           This website describes services offered by {site.name}. Nothing on these pages is a guarantee of

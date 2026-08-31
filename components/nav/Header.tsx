@@ -3,75 +3,61 @@
 import Link from "next/link";
 import { useState } from "react";
 import { cta, nav, site } from "@/lib/site";
-import { PillButton } from "@/components/ui/PillButton";
 
 export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-sky-400/10 bg-[#020617]/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-[4.25rem] sm:px-8">
-        <Link href="/" className="flex items-center gap-2.5" prefetch>
-          <span className="grid h-8 w-8 place-items-center rounded-full bg-sky-400/15 ring-1 ring-sky-400/50">
-            <span className="h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_12px_#38bdf8]" />
-          </span>
-          <span className="font-display text-sm font-extrabold uppercase tracking-[0.18em] text-white">
+    <>
+      <header className="fixed inset-x-0 top-0 z-50 bg-bg/80 backdrop-blur-sm">
+        <div className="mx-auto flex h-[72px] max-w-[1470px] items-center justify-between px-4 sm:px-8 lg:px-14">
+          <Link href="/" prefetch className="text-[15px] tracking-tight text-ink">
             {site.name}
-          </span>
-        </Link>
-
-        <nav className="hidden items-center gap-8 md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              prefetch
-              className="text-sm font-medium text-slate-300 transition-colors hover:text-white"
-            >
-              {item.label}
-            </Link>
-          ))}
-          <PillButton href={cta.header.href} variant="header" size="sm">
-            {cta.header.label}
-          </PillButton>
-        </nav>
-
-        <button
-          type="button"
-          className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white md:hidden"
-          aria-label={open ? "Close menu" : "Open menu"}
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">Menu</span>
-          <span className="flex flex-col gap-1.5">
-            <span className={`h-px w-4 bg-white transition ${open ? "translate-y-1 rotate-45" : ""}`} />
-            <span className={`h-px w-4 bg-white transition ${open ? "opacity-0" : ""}`} />
-            <span className={`h-px w-4 bg-white transition ${open ? "-translate-y-1 -rotate-45" : ""}`} />
-          </span>
-        </button>
-      </div>
+          </Link>
+          <button
+            type="button"
+            className="flex items-center gap-3 text-[15px] text-ink"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span>{open ? "Close" : "Menu"}</span>
+            <span className="grid grid-cols-2 gap-[3px]" aria-hidden>
+              <i className="block h-1.5 w-1.5 bg-ink" />
+              <i className="block h-1.5 w-1.5 bg-ink" />
+              <i className="block h-1.5 w-1.5 bg-ink" />
+              <i className="block h-1.5 w-1.5 bg-ink" />
+            </span>
+          </button>
+        </div>
+      </header>
 
       {open ? (
-        <div className="border-t border-sky-400/10 bg-[#020617] px-5 py-5 md:hidden">
-          <div className="flex flex-col gap-4">
-            {nav.map((item) => (
+        <div className="fixed inset-0 z-40 overflow-y-auto bg-bg px-4 pt-28 sm:px-8 lg:px-14">
+          <p className="font-mono text-sm text-muted">Menu / 01–05</p>
+          <nav className="mt-10 flex flex-col">
+            {[...nav, { href: "/book", label: "Book a call" }].map((item, i) => (
               <Link
                 key={item.href}
                 href={item.href}
                 prefetch
-                className="font-display text-lg font-bold text-white"
                 onClick={() => setOpen(false)}
+                className="flex items-baseline gap-6 border-t border-ink/10 py-6 last:border-b"
               >
-                {item.label}
+                <span className="font-mono text-sm text-accent">{String(i + 1).padStart(2, "0")}</span>
+                <span className="display text-[clamp(2rem,5vw,4.5rem)]">{item.label}</span>
               </Link>
             ))}
-            <PillButton href={cta.header.href} className="w-full">
-              {cta.header.label}
-            </PillButton>
-          </div>
+          </nav>
+          <Link
+            href={cta.primary.href}
+            className="mt-10 inline-block text-2xl text-accent"
+            onClick={() => setOpen(false)}
+          >
+            [ {cta.primary.label} ]
+          </Link>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }

@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/nav/Header";
 import { Footer } from "@/components/nav/Footer";
 import { StickyCta } from "@/components/funnel/StickyCta";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const poppins = Poppins({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800", "900"],
-  variable: "--font-poppins",
+  variable: "--font-geist-mono",
   display: "swap",
 });
 
@@ -36,13 +35,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${poppins.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-bg text-ink font-sans">
+    <html lang="en" className={`${geist.variable} ${geistMono.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-bg font-sans text-ink">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-accent focus:px-3 focus:py-2 focus:text-bg"
+        >
+          Skip to main content
+        </a>
         <Header />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
         <StickyCta />
       </body>

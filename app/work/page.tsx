@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { GlowCard } from "@/components/ui/GlowCard";
 import { Section } from "@/components/ui/Section";
 import { CtaBand } from "@/components/funnel/CtaBand";
 import { ProofCards } from "@/components/funnel/ProofCards";
@@ -15,22 +14,26 @@ export default function WorkPage() {
   return (
     <>
       <Section
-        eyebrow="Work"
+        className="pt-28"
+        index="01 / Work"
         title="Systems, not mood boards"
         body="These cards are representative installs. Swap in your live numbers when the warm list publishes them."
       >
-        <div className="grid gap-5 md:grid-cols-3">
-          {caseStudies.map((c) => (
-            <GlowCard key={c.title} className="p-7">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-accent">{c.niche}</p>
-              <h2 className="mt-3 font-display text-2xl font-extrabold text-white">{c.title}</h2>
-              <div className="mt-4 rounded-2xl bg-black/35 px-4 py-3">
-                <p className="font-display text-sm font-bold italic text-white">{c.result}</p>
+        <ul>
+          {caseStudies.map((c, i) => (
+            <li key={c.title} className="grid gap-3 border-t border-ink/10 py-8 last:border-b md:grid-cols-[72px_1fr_1.2fr]">
+              <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">{c.niche}</p>
+                <h2 className="mt-2 text-2xl tracking-tight">{c.title}</h2>
               </div>
-              <p className="mt-4 text-sm leading-7 text-muted">{c.body}</p>
-            </GlowCard>
+              <div>
+                <p className="text-lg tracking-tight">{c.result}</p>
+                <p className="mt-3 text-sm leading-7 text-muted">{c.body}</p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </Section>
       <ProofCards />
       <CtaBand />

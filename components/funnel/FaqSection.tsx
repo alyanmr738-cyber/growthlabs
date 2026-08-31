@@ -12,9 +12,9 @@ export function FaqSection({
   title?: string;
 }) {
   return (
-    <Section eyebrow="FAQ" title={title} body="Straight answers. If yours is missing, the strategy call is the place.">
+    <Section index="07 / FAQ" title={title} body="Straight answers. If yours is missing, the strategy call is the place.">
       <JsonLd data={faqJsonLd(items)} />
-      <div className="mx-auto max-w-3xl">
+      <div className="max-w-3xl">
         <Accordion items={items} />
       </div>
     </Section>

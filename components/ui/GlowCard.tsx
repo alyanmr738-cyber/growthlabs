@@ -9,7 +9,7 @@ type Props = {
 export function GlowCard({ children, className = "", hover = true }: Props) {
   return (
     <div
-      className={`rounded-3xl bg-card glow-border ${hover ? "transition-transform duration-200 will-change-transform hover:-translate-y-1" : ""} ${className}`}
+      className={`border border-ink/10 bg-transparent ${hover ? "transition-colors hover:bg-ink/[0.03]" : ""} ${className}`}
     >
       {children}
     </div>

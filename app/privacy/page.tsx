@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <Section center={false} eyebrow="Legal" title="Privacy Policy">
+    <Section className="pt-28" index="01 / Legal" title="Privacy Policy">
       <div className="mx-auto max-w-3xl space-y-6 text-sm leading-7 text-muted">
         <p>
           {site.name} (“we”) operates this marketing website. Until a production domain and processors are
