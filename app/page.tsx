@@ -4,14 +4,12 @@ import { Marquee } from "@/components/funnel/Marquee";
 import { ThreeSteps } from "@/components/funnel/ThreeSteps";
 import { SystemDiagram } from "@/components/funnel/SystemDiagram";
 import { ServiceBento } from "@/components/funnel/ServiceBento";
+import { AboutLine } from "@/components/funnel/AboutLine";
 import { ProofCards } from "@/components/funnel/ProofCards";
 import { FaqSection } from "@/components/funnel/FaqSection";
 import { CtaBand } from "@/components/funnel/CtaBand";
-import { StatCard } from "@/components/ui/StatCard";
-import { Section } from "@/components/ui/Section";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { orgJsonLd } from "@/lib/jsonld";
-import { stats } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -20,26 +18,16 @@ export default function Home() {
       <Hero />
       <Marquee />
       <FadeIn>
-        <Section
-          index="02 / Numbers"
-          title="Speed, coverage, one stack"
-          body="Placeholders until your live metrics drop in. The promise stays the same."
-        >
-          <div className="grid gap-4 md:grid-cols-3 md:gap-12">
-            {stats.map((s) => (
-              <StatCard key={s.label} {...s} />
-            ))}
-          </div>
-        </Section>
+        <ThreeSteps />
       </FadeIn>
       <FadeIn>
-        <ThreeSteps />
+        <ServiceBento />
       </FadeIn>
       <FadeIn>
         <SystemDiagram />
       </FadeIn>
       <FadeIn>
-        <ServiceBento />
+        <AboutLine />
       </FadeIn>
       <FadeIn>
         <ProofCards />

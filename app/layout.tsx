@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/nav/Header";
 import { Footer } from "@/components/nav/Footer";
 import { StickyCta } from "@/components/funnel/StickyCta";
+import { CornerTalk } from "@/components/funnel/CornerTalk";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <CornerTalk />
         <StickyCta />
       </body>
     </html>

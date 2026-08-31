@@ -4,7 +4,7 @@ import { testimonials } from "@/lib/proof";
 export function ProofCards() {
   return (
     <Section
-      index="06 / Proof"
+      index="Proof"
       title="What operators say after the leak is closed"
       body="Placeholder stories until your warm-list results are published. The shape is the same: a number, a niche, a system that booked the lead."
     >
