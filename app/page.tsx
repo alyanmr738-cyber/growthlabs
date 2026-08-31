@@ -5,6 +5,7 @@ import { ThreeSteps } from "@/components/funnel/ThreeSteps";
 import { SystemDiagram } from "@/components/funnel/SystemDiagram";
 import { ServiceBento } from "@/components/funnel/ServiceBento";
 import { AboutLine } from "@/components/funnel/AboutLine";
+import { WorkShowcase } from "@/components/funnel/WorkShowcase";
 import { ProofCards } from "@/components/funnel/ProofCards";
 import { FaqSection } from "@/components/funnel/FaqSection";
 import { CtaBand } from "@/components/funnel/CtaBand";
@@ -25,6 +26,9 @@ export default function Home() {
         <SystemDiagram />
       </FadeIn>
       <AboutLine />
+      <FadeIn>
+        <WorkShowcase compact />
+      </FadeIn>
       <FadeIn>
         <ProofCards />
       </FadeIn>
