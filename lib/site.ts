@@ -1,8 +1,8 @@
 export const site = {
-  name: "Growth Labs",
+  name: "revenueflow",
   tagline: "We turn enquiries into booked appointments",
   description:
-    "Growth Labs sets up ads, tracking, GoHighLevel, follow-up, and AI chat and voice for growing businesses — so every lead gets a reply and a time on the calendar, not a place in an unread list.",
+    "revenueflow sets up ads, tracking, GoHighLevel, follow-up, and AI chat and voice for growing businesses — so every lead gets a reply and a time on the calendar, not a place in an unread list.",
   url: "https://growthlabs.example",
   email: "hello@growthlabs.example",
 } as const;
@@ -37,7 +37,7 @@ export const eyebrow = "For business owners who get leads but lose them";
 export const hero = {
   kicker: "Start",
   h1: "Leads come in. We make sure they book.",
-  lede: "You pay for ads or a website. People fill in a form or call. Then nothing happens fast enough — so they go elsewhere. Growth Labs sets up the tools that reply, follow up, and put a real appointment on your calendar.",
+  lede: "You pay for ads or a website. People fill in a form or call. Then nothing happens fast enough — so they go elsewhere. revenueflow sets up the tools that reply, follow up, and put a real appointment on your calendar.",
 } as const;
 
 export const promises = [

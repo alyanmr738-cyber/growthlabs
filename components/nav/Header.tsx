@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { overlayMenu, site } from "@/lib/site";
+import { overlayMenu } from "@/lib/site";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 
 function easeInOutCubic(t: number) {
   return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
@@ -65,10 +66,10 @@ export function Header() {
           <Link
             href="/"
             prefetch
-            className={`text-[15px] tracking-tight transition-colors duration-300 ${open ? "text-ink/35" : "text-ink"}`}
+            className={`flex items-center transition-opacity duration-300 ${open ? "opacity-35" : "opacity-100"}`}
             onClick={() => setOpen(false)}
           >
-            {site.name}
+            <BrandLogo preload className="h-[22px]" />
           </Link>
           <button
             type="button"

@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { cta, nav, site } from "@/lib/site";
 import { services } from "@/lib/services";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 
 export function Footer() {
   return (
     <footer className="border-t border-ink/10 bg-bg px-4 pb-24 pt-16 sm:px-8 md:pb-12 lg:px-14">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-12 md:flex-row md:justify-between">
         <div>
-          <p className="text-lg tracking-tight">{site.name}</p>
+          <BrandLogo className="h-7" />
           <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
             Ads, follow-up, and booking — set up so an enquiry becomes an appointment, not an unread message.
           </p>
