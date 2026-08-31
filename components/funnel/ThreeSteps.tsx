@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { cta, steps } from "@/lib/site";
+import { cta, processIntro, steps } from "@/lib/site";
 
 export function ThreeSteps() {
   return (
@@ -7,10 +7,15 @@ export function ThreeSteps() {
       <div className="mx-auto max-w-[1400px]">
         <div className="flex flex-col items-center">
           <p className="rounded-full bg-accent px-6 py-3 text-center text-sm text-white sm:px-8 sm:text-base">
-            Want to work together? Here’s our 3-step process…
+            Want more booked calls? Here’s how we start.
           </p>
           <div className="h-12 w-px bg-ink/15" aria-hidden />
         </div>
+
+        <header className="mb-4 max-w-2xl">
+          <h2 className="display max-w-[14ch]">{processIntro.title}</h2>
+          <p className="mt-4 text-base leading-7 text-muted sm:text-lg">{processIntro.body}</p>
+        </header>
 
         <ol className="grid border-y border-ink/10 md:grid-cols-3">
           {steps.map((step, i) => (
@@ -50,7 +55,7 @@ export function ThreeSteps() {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-full bg-accent px-6 py-4 text-white sm:flex-row sm:items-center sm:px-8">
           <p className="text-lg tracking-tight sm:text-xl">
-            <span className="font-medium">Ready to get started?</span> Let’s go.
+            <span className="font-medium">Ready?</span> Book a 30-minute call.
           </p>
           <Link
             href={cta.primary.href}

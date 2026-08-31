@@ -5,8 +5,7 @@ import { processStages } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Process",
-  description:
-    "How Growth Labs installs ads, GTM, GoHighLevel, automations, and AI: discovery, architecture, build, testing, launch.",
+  description: "How Growth Labs starts: we find where leads drop, agree the plan, then build it in your accounts.",
 };
 
 export default function ProcessPage() {
@@ -15,8 +14,8 @@ export default function ProcessPage() {
       <Section
         className="pt-28"
         index="01 / Process"
-        title="Discovery to launch — without open-ended hourly fog"
-        body="Most installs finish in two to four weeks. Complex AI voice and offline conversion work can take a little longer. You get a written scope before we start."
+        title="From first call to a working setup — usually two to four weeks"
+        body="You get a written plan before we touch anything. Most work happens in your own Google, Facebook, and GoHighLevel accounts."
       >
         <ol>
           {processStages.map((stage, i) => (

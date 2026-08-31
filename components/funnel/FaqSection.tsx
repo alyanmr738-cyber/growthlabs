@@ -6,13 +6,17 @@ import { faqJsonLd } from "@/lib/jsonld";
 
 export function FaqSection({
   items = siteFaq,
-  title = "Frequently asked questions",
+  title = "Common questions",
 }: {
   items?: { q: string; a: string }[];
   title?: string;
 }) {
   return (
-    <Section index="FAQ" title={title} body="Straight answers. If yours is missing, the strategy call is the place.">
+    <Section
+      index="Questions"
+      title={title}
+      body="Short answers. If yours is missing, ask it on the 30-minute call."
+    >
       <JsonLd data={faqJsonLd(items)} />
       <div className="max-w-3xl">
         <Accordion items={items} />

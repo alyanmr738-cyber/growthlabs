@@ -1,4 +1,4 @@
-import { practice, practiceSplit } from "@/lib/site";
+import { practice, practiceIntro, practiceSplit } from "@/lib/site";
 
 export function SystemDiagram() {
   return (
@@ -6,26 +6,17 @@ export function SystemDiagram() {
       <div className="mx-auto max-w-[1400px]">
         <div className="flex items-start justify-between gap-6">
           <p className="font-mono text-sm">
-            <span className="text-accent">03</span>
-            <span> / Practice / System</span>
-          </p>
-          <p className="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted sm:block">
-            In focus · Surface / System
+            <span className="text-accent">{practiceIntro.index.split(" / ")[0]}</span>
+            <span> / {practiceIntro.index.split(" / ").slice(1).join(" / ")}</span>
           </p>
         </div>
 
         <div className="mt-10 grid gap-8 border-b border-ink/10 pb-12 lg:grid-cols-2 lg:items-end">
-          <h2 className="display max-w-[14ch]">Surface is what people see. System is what makes it book.</h2>
-          <p className="max-w-md text-base leading-7 text-muted lg:justify-self-end">
-            We shape both: the visible funnel and the operating logic behind it.
-          </p>
+          <h2 className="display max-w-[16ch]">{practiceIntro.title}</h2>
+          <p className="max-w-md text-base leading-7 text-muted lg:justify-self-end">{practiceIntro.body}</p>
         </div>
 
-        <ul className="relative">
-          <div
-            className="pointer-events-none absolute bottom-0 top-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent/40 lg:block"
-            aria-hidden
-          />
+        <ul>
           {practice.map((item) => (
             <li
               key={item.n}
@@ -40,12 +31,8 @@ export function SystemDiagram() {
           ))}
         </ul>
 
-        <div className="relative mt-4 grid gap-8 py-12 lg:grid-cols-2">
-          <div
-            className="pointer-events-none absolute bottom-0 top-0 left-1/2 hidden w-px -translate-x-1/2 bg-accent lg:block"
-            aria-hidden
-          />
-          <div className="lg:pr-12 lg:text-right">
+        <div className="mt-4 grid gap-8 py-12 lg:grid-cols-2">
+          <div className="lg:pr-12">
             <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
               {practiceSplit.surface.label}
             </p>
@@ -57,9 +44,6 @@ export function SystemDiagram() {
             </p>
             <p className="mt-3 text-base leading-7 text-dim">{practiceSplit.system.body}</p>
           </div>
-          <span className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 font-mono text-xs text-accent lg:inline">
-            [ <i className="mx-0.5 inline-block h-2 w-2 bg-accent align-middle" /> ]
-          </span>
         </div>
       </div>
     </section>

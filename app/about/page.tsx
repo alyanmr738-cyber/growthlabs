@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Growth Labs builds the booking engine for global service businesses: ads, tracking, GoHighLevel, automations, and AI.",
+    "Growth Labs is one team that connects ads, follow-up, and booking so enquiries become appointments.",
 };
 
 export default function AboutPage() {
@@ -15,24 +15,24 @@ export default function AboutPage() {
       <Section
         className="pt-28"
         index="01 / About"
-        title={`${site.name} exists to close the gap between spend and a booked call`}
-        body="We work with a warm list of global businesses that already know they need the stack — not another generic agency pitch."
+        title={`${site.name} exists so paid enquiries stop dying in a list`}
+        body="We work with owners who already get leads. The job is simple: reply fast, follow up, and get a time on the calendar."
       >
         <div className="grid border-t border-ink/10 md:grid-cols-2">
           <div className="border-b border-ink/10 p-8 md:border-r">
-            <h2 className="text-2xl tracking-tight">Why we built this</h2>
+            <h2 className="text-2xl tracking-tight">The usual mess</h2>
             <p className="mt-4 text-sm leading-7 text-muted">
-              Media teams optimize for leads. CRM freelancers optimize for workflows. Tracking lives in a
-              spreadsheet. We put Google Ads, Meta Ads, GTM, GoHighLevel, automations, and AI chat/voice
-              under one architecture so the algorithm and the front desk are looking at the same event:
-              someone booked.
+              Ads people chase more leads. CRM people chase more workflows. Tracking sits in a spreadsheet.
+              Nobody owns the moment a person actually books. We put ads, follow-up, and booking under one
+              plan so the front desk and the ads account are looking at the same thing: someone booked.
             </p>
           </div>
           <div className="border-b border-ink/10 p-8">
             <h2 className="text-2xl tracking-tight">How we work</h2>
             <p className="mt-4 text-sm leading-7 text-muted">
-              Inside your accounts. Written scope. Weekly Looms. Tests before launch. Thirty days of
-              support after go-live. Brand name is a placeholder until the domain is live — the offer is not.
+              Inside your accounts. A written plan. Short weekly videos. We test like a customer before
+              go-live. Then 30 days of support. The brand name is a placeholder until the domain is live —
+              the offer is not.
             </p>
           </div>
         </div>

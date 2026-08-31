@@ -21,7 +21,7 @@ export const services: Service[] = [
   {
     slug: "market-growth",
     name: "Market Growth",
-    short: "The full engine: traffic, tracking, CRM, and AI working as one system.",
+    short: "The full setup: ads, tracking, CRM, and follow-up so enquiries become appointments.",
     navLabel: "Market Growth",
     title: "Market Growth System for Growing Businesses | Growth Labs",
     description:
@@ -57,7 +57,7 @@ export const services: Service[] = [
   {
     slug: "gohighlevel",
     name: "GoHighLevel",
-    short: "CRM, pipelines, funnels, calendars, and snapshots that match how you actually sell.",
+    short: "Your CRM, pipeline, texts, and booking calendar — set up to match how you sell.",
     navLabel: "GoHighLevel",
     title: "GoHighLevel Setup & CRM for Growing Businesses | Growth Labs",
     description:
@@ -93,7 +93,7 @@ export const services: Service[] = [
   {
     slug: "automations",
     name: "Automations",
-    short: "Speed-to-lead, missed-call text-back, reminders, and nurture that run without you.",
+    short: "Instant texts, missed-call replies, and reminders that run without you chasing them.",
     navLabel: "Automations",
     title: "GoHighLevel Automations & Workflows | Growth Labs",
     description:
@@ -129,7 +129,7 @@ export const services: Service[] = [
   {
     slug: "ai-chatbot",
     name: "AI Chatbot",
-    short: "Conversation AI that answers, qualifies, captures, and books — 24/7, on-brand.",
+    short: "Website chat that answers questions, checks they are a fit, and offers a time — day or night.",
     navLabel: "AI Chatbot",
     title: "AI Chatbot & Conversation AI for GoHighLevel | Growth Labs",
     description:
@@ -165,7 +165,7 @@ export const services: Service[] = [
   {
     slug: "ai-voicebot",
     name: "AI VoiceBot",
-    short: "Voice AI that answers, qualifies, books, and routes hot callers to humans.",
+    short: "A phone line that answers when you cannot, asks a few questions, and books the call.",
     navLabel: "AI VoiceBot",
     title: "AI Voice Agent Setup for GoHighLevel | Growth Labs",
     description:
@@ -201,7 +201,7 @@ export const services: Service[] = [
   {
     slug: "google-ads",
     name: "Google Ads",
-    short: "Search and Performance Max aimed at booked work — wired into GHL and GTM.",
+    short: "Google ads for people searching now — sent into your CRM, not a spreadsheet.",
     navLabel: "Google Ads",
     title: "Google Ads Lead Generation for Growing Businesses | Growth Labs",
     description:
@@ -237,7 +237,7 @@ export const services: Service[] = [
   {
     slug: "gtm",
     name: "Google Tag Manager",
-    short: "GTM, GA4, CAPI, and offline conversions — so algorithms learn from real bookings.",
+    short: "We track booked appointments, so you stop paying for clicks that never speak to you.",
     navLabel: "GTM",
     title: "Google Tag Manager & Conversion Tracking | Growth Labs",
     description:
@@ -273,7 +273,7 @@ export const services: Service[] = [
   {
     slug: "meta-ads",
     name: "Meta Ads",
-    short: "Facebook and Instagram Lead Ads and Advantage+ that land in GHL in seconds.",
+    short: "Facebook and Instagram leads drop into a pipeline with a text waiting — not a notification pile.",
     navLabel: "Meta Ads",
     title: "Meta Ads & Lead Ads into GoHighLevel | Growth Labs",
     description:

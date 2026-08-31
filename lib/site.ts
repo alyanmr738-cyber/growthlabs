@@ -1,8 +1,8 @@
 export const site = {
   name: "Growth Labs",
-  tagline: "GoHighLevel systems that generate leads, book calls, and run on automation",
+  tagline: "We turn enquiries into booked appointments",
   description:
-    "Growth Labs specialises in setting up, optimising, and managing GoHighLevel for growing businesses — with Google Ads, Meta Ads, Google Tag Manager, automations, and AI chat and voice so every lead is tracked, followed up, and booked.",
+    "Growth Labs sets up ads, tracking, GoHighLevel, follow-up, and AI chat and voice for growing businesses — so every lead gets a reply and a time on the calendar, not a place in an unread list.",
   url: "https://growthlabs.example",
   email: "hello@growthlabs.example",
 } as const;
@@ -16,28 +16,44 @@ export const nav = [
 ] as const;
 
 export const overlayMenu = [
-  { n: "01", href: "/#signal", label: "Signal", tag: "DIRECTION" },
-  { n: "02", href: "/#work", label: "Work", tag: null },
-  { n: "03", href: "/#practice", label: "Practice", tag: null },
-  { n: "04", href: "/#about", label: "About", tag: null },
-  { n: "05", href: "/#contact", label: "Contact", tag: null },
+  { n: "01", href: "/#signal", label: "Start", tag: "THE PROBLEM" },
+  { n: "02", href: "/#work", label: "Services", tag: "WHAT YOU GET" },
+  { n: "03", href: "/#practice", label: "How it works", tag: null },
+  { n: "04", href: "/#about", label: "Why us", tag: null },
+  { n: "05", href: "/#contact", label: "Book a call", tag: null },
 ] as const;
 
 export const cta = {
-  primary: { href: "/book", label: "Book a strategy call" },
-  secondary: { href: "/#join", label: "See the 3-step process" },
+  primary: { href: "/book", label: "Book a 30-minute call" },
+  secondary: { href: "/#join", label: "See how we start" },
   header: { href: "/book", label: "Let's talk" },
 } as const;
 
 export const announcement =
-  "Done-for-you GoHighLevel, ads, tracking, and AI — one system, one owner";
+  "We set up the ads, CRM, and follow-up so every lead gets a reply — and a booking.";
 
-export const eyebrow = "For founders, operators, and growing agencies";
+export const eyebrow = "For business owners who get leads but lose them";
 
 export const hero = {
-  h1: "GoHighLevel, ads, and automation — shaped to generate leads and book the call.",
-  lede: "Whether you are just starting with GoHighLevel or need advanced customisation, we set up CRM, Google Ads, Meta Ads, GTM, automations, and AI so your calendar fills with qualified appointments — not a pile of unworked contacts.",
+  kicker: "Start",
+  h1: "Leads come in. We make sure they book.",
+  lede: "You pay for ads or a website. People fill in a form or call. Then nothing happens fast enough — so they go elsewhere. Growth Labs sets up the tools that reply, follow up, and put a real appointment on your calendar.",
 } as const;
+
+export const promises = [
+  {
+    title: "People find you",
+    body: "Google and Facebook ads aimed at people already looking for what you sell.",
+  },
+  {
+    title: "Someone always replies",
+    body: "Texts, email, website chat, and a phone line that pick up in seconds — even after hours.",
+  },
+  {
+    title: "They pick a time",
+    body: "Qualified people land on your calendar. You show up to a booked call, not an unread list.",
+  },
+] as const;
 
 export const partners = [
   "Clinics",
@@ -56,17 +72,17 @@ export const stats = [
   {
     value: "60",
     accent: "s",
-    label: "Speed-to-lead after a form, call, or ad lead — so nothing sits overnight",
+    label: "Typical time to first reply after someone fills a form or clicks an ad",
   },
   {
     value: "24",
     accent: "/7",
-    label: "AI chat and voice coverage so after-hours enquiries still book",
+    label: "Chat and phone coverage so nights and weekends still get booked",
   },
   {
     value: "1",
-    accent: " stack",
-    label: "Ads, GTM, GoHighLevel, and bots — one path to a booked appointment",
+    accent: " team",
+    label: "One place to call. Ads, CRM, and follow-up are not split across three vendors.",
   },
 ] as const;
 
@@ -74,29 +90,29 @@ export const steps = [
   {
     n: "01",
     label: "Step one",
-    title: "Map the leak",
-    tip: "Leads coming in but not booking? Start here.",
-    cta: "See how we work",
+    title: "See where leads drop",
+    tip: "Getting enquiries but not bookings? Start here.",
+    cta: "See the full process",
     href: "/process",
-    body: "We audit how leads enter GoHighLevel, where they stall, and what has to fire so a booking actually happens. You leave with a clear Growth Map — not a slide deck.",
+    body: "We look at how people reach you today — ads, website, phone — and where they stall. You leave knowing the leak, not sitting through a pitch deck.",
   },
   {
     n: "02",
     label: "Step two",
-    title: "Strategy call",
-    tip: "Get a taste of the full install.",
-    cta: "Book a strategy call",
+    title: "A 30-minute call",
+    tip: "No hard sell. We say if we are not the right fit.",
+    cta: "Book a 30-minute call",
     href: "/book",
-    body: "A 30-minute working session. We confirm scope, timeline, and what done looks like for CRM, ads, tracking, and AI. If we are not the right fit, we say so.",
+    body: "We agree what “done” looks like: ads, CRM, texts, chat, or the lot. You get a clear scope and timeline before anyone builds anything.",
   },
   {
     n: "03",
-    label: "Level three",
-    title: "Done-for-you install",
-    tip: "Ready to fill the calendar.",
-    cta: "Start the install",
+    label: "Step three",
+    title: "We build it for you",
+    tip: "Ready for the calendar to fill.",
+    cta: "Start the setup",
     href: "/book",
-    body: "We build inside your accounts: GoHighLevel, Google Ads, Meta Ads, GTM, automations, and AI. Tested end-to-end, then handed over with SOPs and 30 days of support.",
+    body: "We work in your accounts. We test every form, ad, and message for real. Then we hand it over with simple instructions and 30 days of support.",
   },
 ] as const;
 
@@ -112,52 +128,76 @@ export const systemNodes = [
 export const practice = [
   {
     n: "01",
-    title: "Demand",
-    body: "Google and Meta structured so a lead is worth following up.",
+    title: "Ads",
+    body: "Google and Facebook ads that reach people already looking — not random clicks.",
   },
   {
     n: "02",
-    title: "Signal",
-    body: "GTM and conversion APIs so the algorithm sees booked calls, not clicks.",
+    title: "Tracking",
+    body: "We measure booked appointments, so you stop paying for “leads” that never speak to you.",
   },
   {
     n: "03",
-    title: "Operating system",
-    body: "GoHighLevel pipelines, calendars, and automations that match how you sell.",
+    title: "Your CRM",
+    body: "GoHighLevel stores the person, texts them, and offers a calendar that matches how you sell.",
   },
   {
     n: "04",
-    title: "Conversation",
-    body: "AI chat and voice that qualify the enquiry and put a name on the calendar.",
+    title: "Chat and phone",
+    body: "A website chat and a voice line that answer, ask a few questions, and book when you are busy.",
   },
 ] as const;
 
+export const practiceIntro = {
+  index: "03 / How it works",
+  title: "What people see, and what runs in the background.",
+  body: "Customers see a form, a chat, or a phone line. Behind that we connect ads, tracking, and follow-up so a booking actually happens.",
+} as const;
+
 export const practiceSplit = {
   surface: {
-    label: "Surface",
-    body: "Funnels, calendars, and the conversation people actually see.",
+    label: "What they see",
+    body: "Your pages, booking calendar, texts, and the chat or phone that answers them.",
   },
   system: {
-    label: "System",
-    body: "Tracking, pipelines, and automations that keep it booked, stable, and fast.",
+    label: "What we set up",
+    body: "Ads, tracking, pipelines, and automations that keep it fast, accurate, and booked.",
   },
 } as const;
 
 export const aboutLine = {
-  index: "04 / About",
-  title: "One continuous line from first enquiry to booked call.",
-  aside: "Product thinking, ads, and technical execution — held in one line.",
-  marker: "That line stays intact from the first click to a name on the calendar.",
-  start: "Idea",
-  end: "Working form",
+  index: "04 / Why us",
+  title: "One team. One job: booked calls.",
+  body: "Most owners already have ads, a CRM, and a chatbot from different people. None of them talk. We connect the path so a person who enquires today can be on your calendar today.",
 } as const;
 
+export const aboutSteps = [
+  {
+    n: "01",
+    label: "They enquire",
+    title: "Someone asks for help",
+    body: "They click an ad, fill a form, miss you on the phone, or open the chat. That is the start. Most businesses lose them in the next hour.",
+  },
+  {
+    n: "02",
+    label: "We connect it",
+    title: "Every tool has one owner",
+    body: "We set up ads, tracking, GoHighLevel, texts, and AI in your accounts. You are not chasing three vendors to find out why nobody booked.",
+  },
+  {
+    n: "03",
+    label: "They book",
+    title: "A real time on your calendar",
+    body: "They get a fast reply, a few qualifying questions, and a slot. You show up to the call. That is the outcome — not another unread contact.",
+  },
+] as const;
+
 export const contact = {
-  index: "05 / Contact",
-  title: "Let’s install a system that books.",
-  body: "For GoHighLevel, ads, tracking, and AI that need one owner — not three vendors hoping it connects.",
-  box: "Start a conversation",
-  direct: "or write directly",
+  index: "05 / Book a call",
+  title: "Tell us where leads stall. We’ll tell you what to fix.",
+  body: "Thirty minutes. Bring how people find you today. We will say what is broken, what we would set up, and whether we are the right fit. No pitch deck.",
+  box: "Book a 30-minute call",
+  direct: "Or email",
 } as const;
 
 export const serviceSpine: Record<
@@ -165,66 +205,77 @@ export const serviceSpine: Record<
   { tag: string; meta: string; blurb: string }
 > = {
   "market-growth": {
-    tag: "GROWTH SYSTEM",
-    meta: "FULL STACK · TRAFFIC · TRACKING · CRM · AI",
-    blurb: "The whole engine, installed as one path to a booked call.",
+    tag: "THE FULL SETUP",
+    meta: "ADS · TRACKING · CRM · FOLLOW-UP",
+    blurb: "We put ads, tracking, your CRM, and follow-up on one path so a new enquiry can book the same day.",
   },
   gohighlevel: {
-    tag: "CRM SETUP",
-    meta: "PIPELINES · FUNNELS · CALENDARS · SNAPSHOTS",
-    blurb: "GoHighLevel built around how you actually sell.",
+    tag: "YOUR CRM",
+    meta: "PIPELINE · TEXTS · BOOKING CALENDAR",
+    blurb: "GoHighLevel set up around how you actually sell — stages, reminders, and a calendar people can book.",
   },
   automations: {
-    tag: "WORKFLOWS",
-    meta: "SPEED-TO-LEAD · SMS · EMAIL · ROUTING",
-    blurb: "Follow-up that fires in seconds, not overnight.",
+    tag: "AUTO FOLLOW-UP",
+    meta: "TEXT · EMAIL · INSTANT REPLY",
+    blurb: "The moment someone enquires, a text and email go out. Nothing waits until morning.",
   },
   "ai-chatbot": {
-    tag: "CONVERSATION AI",
-    meta: "WEB CHAT · QUALIFY · BOOK",
-    blurb: "Chat that answers, qualifies, and books the appointment.",
+    tag: "WEBSITE CHAT",
+    meta: "ANSWERS · QUESTIONS · BOOKS",
+    blurb: "Chat on your site that answers common questions, checks they are a fit, and offers a time.",
   },
   "ai-voicebot": {
-    tag: "VOICE AI",
-    meta: "MISSED CALLS · AFTER HOURS · BOOKING",
-    blurb: "The line that still picks up when you cannot.",
+    tag: "PHONE LINE",
+    meta: "MISSED CALLS · NIGHTS · WEEKENDS",
+    blurb: "A voice line that picks up when you cannot, asks a few questions, and books the appointment.",
   },
   "google-ads": {
     tag: "GOOGLE ADS",
-    meta: "SEARCH · PMAX · LEAD FORMS",
-    blurb: "Intent traffic wired into GoHighLevel, not a spreadsheet.",
+    meta: "SEARCH · PEOPLE READY TO BUY",
+    blurb: "Ads for people searching right now — wired into your CRM so the lead is called, not exported to a sheet.",
   },
   gtm: {
-    tag: "MEASUREMENT",
-    meta: "GTM · GA4 · CAPI · OFFLINE",
-    blurb: "The algorithm only learns if the conversion is true.",
+    tag: "TRACKING",
+    meta: "WHAT ACTUALLY BOOKED",
+    blurb: "We track booked appointments, not just form fills, so you stop paying for clicks that never speak to you.",
   },
   "meta-ads": {
-    tag: "META ADS",
-    meta: "LEAD ADS · RETARGETING · CAPI",
-    blurb: "Meta leads that land in a pipeline, not a notifications pile.",
+    tag: "FACEBOOK & INSTAGRAM",
+    meta: "LEAD FORMS · FOLLOW-UP",
+    blurb: "Facebook and Instagram leads drop into a pipeline with a text waiting — not a notifications pile.",
   },
 };
 
+export const processIntro = {
+  title: "How we start together",
+  body: "Three steps. No 14-item menu. See the leak, get on a call, then we build it in your accounts.",
+} as const;
+
+export const offerIntro = {
+  index: "02 / What you get",
+  title: "Eight services. One job: more booked calls.",
+  body: "Scroll through each piece. You can start with one, or we connect them all so nothing falls between ads, the CRM, and follow-up.",
+} as const;
+
 export const processStages = [
   {
-    title: "Discovery",
-    body: "60-minute kickoff. We map your offer, sales process, current stack, and the leak that costs you the most.",
+    title: "We listen",
+    body: "A kickoff call. We map how you sell, what you already use, and where enquiries die.",
   },
   {
-    title: "Architecture",
-    body: "Pipelines, events, ad structure, and bot scripts on one diagram. You approve the map before we build.",
+    title: "You approve the plan",
+    body: "A simple diagram of ads, messages, and booking. Nothing gets built until you say yes.",
   },
   {
-    title: "Build",
-    body: "We work in your Google, Meta, GTM, and GoHighLevel accounts. Weekly Loom updates. Tight feedback loops.",
+    title: "We build in your accounts",
+    body: "Google, Facebook, tracking, and GoHighLevel stay yours. You get a short video update each week.",
   },
   {
-    title: "Testing",
-    body: "Every form, lead ad, missed call, chatbot, and voice flow is triggered for real. Tracking is verified in GA4 and ad managers.",
+    title: "We test it for real",
+    body: "We submit the form, trigger the ad lead, miss the call, and use the chat — like a customer would.",
   },
   {
-    title: "Launch & support",
-    body: "Go-live with walkthroughs and SOPs. Thirty days of post-launch support, then an optional growth retainer.",
+    title: "Hand over and support",
+    body: "Walkthrough, simple notes, and 30 days of help after go-live. Stay on if you want us to keep running it.",
   },
 ] as const;

@@ -20,15 +20,11 @@ export default function Home() {
       <FadeIn>
         <ThreeSteps />
       </FadeIn>
-      <FadeIn>
-        <ServiceBento />
-      </FadeIn>
+      <ServiceBento />
       <FadeIn>
         <SystemDiagram />
       </FadeIn>
-      <FadeIn>
-        <AboutLine />
-      </FadeIn>
+      <AboutLine />
       <FadeIn>
         <ProofCards />
       </FadeIn>

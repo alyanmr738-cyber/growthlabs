@@ -9,8 +9,7 @@ export function Footer() {
         <div>
           <p className="text-lg tracking-tight">{site.name}</p>
           <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
-            The path from ad click to booked call — Google Ads, Meta Ads, GTM, GoHighLevel, automations,
-            and AI.
+            Ads, follow-up, and booking — set up so an enquiry becomes an appointment, not an unread message.
           </p>
           <Link href={cta.primary.href} prefetch className="mt-6 inline-block text-xl text-accent">
             [ {cta.primary.label} ]

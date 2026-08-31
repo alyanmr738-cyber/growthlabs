@@ -6,9 +6,9 @@ import { CtaBand } from "@/components/funnel/CtaBand";
 import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
-  title: "Services for Growing Businesses",
+  title: "Services",
   description:
-    "Market Growth, GoHighLevel, automations, AI chatbot and voice, Google Ads, Google Tag Manager, and Meta Ads — installed as one booking engine.",
+    "Ads, GoHighLevel, follow-up, website chat, phone, Google Ads, tracking, and Facebook ads — set up so enquiries become bookings.",
 };
 
 export default function ServicesPage() {
@@ -17,8 +17,8 @@ export default function ServicesPage() {
       <Section
         className="pt-28"
         index="01 / Services"
-        title="Choose the piece — or the whole engine"
-        body="Same team either way. Ads, tracking, CRM, automations, and AI share one definition of a booked call."
+        title="Pick one piece, or we connect the lot"
+        body="Same team either way. The job is the same: a person who enquires today can book a time today."
       >
         <ul>
           {services.map((s, i) => (
@@ -43,7 +43,7 @@ export default function ServicesPage() {
           ))}
         </ul>
         <div className="mt-12">
-          <PillButton href="/book">Book a strategy call</PillButton>
+          <PillButton href="/book">Book a 30-minute call</PillButton>
         </div>
       </Section>
       <CtaBand />
