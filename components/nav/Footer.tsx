@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="border-t border-ink/10 bg-bg px-4 pb-24 pt-16 sm:px-8 md:pb-12 lg:px-14">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-12 md:flex-row md:justify-between">
         <div>
-          <BrandLogo className="h-7" />
+          <BrandLogo className="h-8" />
           <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
             Ads, follow-up, and booking — set up so an enquiry becomes an appointment, not an unread message.
           </p>

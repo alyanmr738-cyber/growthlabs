@@ -37,6 +37,7 @@ function smoothScrollTo(id: string) {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [mode, setMode] = useState<"default" | "invert" | "hidden">("default");
   const pathname = usePathname();
 
   useEffect(() => {
@@ -45,6 +46,50 @@ export function Header() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  useEffect(() => {
+    if (mode !== "default") setOpen(false);
+  }, [mode]);
+
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const stack = document.querySelector<HTMLElement>("[data-header-stack]");
+      const work = stack ?? document.getElementById("work");
+      if (!work) {
+        setMode("default");
+        return;
+      }
+      const r = work.getBoundingClientRect();
+      const headerH = 72;
+      if (r.bottom <= 8 || r.top >= window.innerHeight) {
+        setMode("default");
+        return;
+      }
+      if (stack && r.top <= 1 && r.bottom > headerH) {
+        const into = -r.top;
+        setMode(into > window.innerHeight * 0.06 ? "hidden" : "invert");
+        return;
+      }
+      if (r.top < headerH) {
+        setMode("invert");
+        return;
+      }
+      setMode("default");
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [pathname]);
 
   const go = (href: string, event: MouseEvent<HTMLAnchorElement>) => {
     const hash = href.includes("#") ? href.split("#")[1] : "";
@@ -61,7 +106,12 @@ export function Header() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50">
+      <header
+        aria-hidden={mode === "hidden"}
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-[transform,background-color,border-color,opacity] duration-300 ease-out ${
+          mode === "hidden" ? "pointer-events-none -translate-y-full opacity-0" : "translate-y-0 opacity-100"
+        } ${mode === "invert" ? "border-white/25 bg-transparent" : "border-ink/10 bg-bg"}`}
+      >
         <div className="mx-auto flex h-[72px] max-w-[1470px] items-center justify-between px-4 sm:px-8 lg:px-14">
           <Link
             href="/"
@@ -69,23 +119,38 @@ export function Header() {
             className={`flex items-center transition-opacity duration-300 ${open ? "opacity-35" : "opacity-100"}`}
             onClick={() => setOpen(false)}
           >
-            <BrandLogo preload className="h-[22px]" />
-          </Link>
-          <button
-            type="button"
-            className="flex items-center gap-3 text-[15px] text-ink"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className={open ? "md:hidden" : undefined}>{open ? "Close" : "Menu"}</span>
-            <span className="grid grid-cols-2 gap-[3px]" aria-hidden>
-              <i className="block h-1.5 w-1.5 bg-accent" />
-              <i className="block h-1.5 w-1.5 bg-accent" />
-              <i className="block h-1.5 w-1.5 bg-accent" />
-              <i className="block h-1.5 w-1.5 bg-accent" />
+            <span className="relative inline-grid">
+              <BrandLogo
+                preload
+                className={`col-start-1 row-start-1 h-7 transition-opacity duration-300 ${
+                  mode === "invert" ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <BrandLogo
+                variant="cream"
+                className={`col-start-1 row-start-1 h-7 transition-opacity duration-300 ${
+                  mode === "invert" ? "opacity-100" : "opacity-0"
+                }`}
+              />
             </span>
-          </button>
+          </Link>
+          {mode === "invert" ? null : (
+            <button
+              type="button"
+              className="flex items-center gap-3 text-[15px] text-ink"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span className={open ? "md:hidden" : undefined}>{open ? "Close" : "Menu"}</span>
+              <span className="grid grid-cols-2 gap-[3px]" aria-hidden>
+                <i className="block h-1.5 w-1.5 bg-accent" />
+                <i className="block h-1.5 w-1.5 bg-accent" />
+                <i className="block h-1.5 w-1.5 bg-accent" />
+                <i className="block h-1.5 w-1.5 bg-accent" />
+              </span>
+            </button>
+          )}
         </div>
       </header>
 

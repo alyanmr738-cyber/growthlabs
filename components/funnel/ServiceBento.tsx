@@ -1,17 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useReducedMotion } from "motion/react";
+import { motion, motionValue, useMotionValueEvent, useReducedMotion, useTransform } from "motion/react";
+import { useState } from "react";
 import { services } from "@/lib/services";
 import { offerIntro, serviceSpine } from "@/lib/site";
-import { ScrollStack, StackSlide } from "@/components/funnel/ScrollStack";
+import { ScrollStack, StackSlide, useStackProgress } from "@/components/funnel/ScrollStack";
+
+const idleProgress = motionValue(0);
 
 function OfferCard({
   index,
   inverted,
+  large,
 }: {
   index: number;
   inverted?: boolean;
+  large?: boolean;
 }) {
   const s = services[index];
   const meta = serviceSpine[s.slug];
@@ -26,7 +31,13 @@ function OfferCard({
         <p className={`font-mono text-[11px] uppercase tracking-[0.16em] ${inverted ? "text-white/70" : "text-muted"}`}>
           [ {meta?.meta} ]
         </p>
-        <p className="mt-4 text-4xl tracking-tight sm:text-6xl">{s.name}</p>
+        <p
+          className={`mt-4 tracking-tight transition-[font-size] duration-500 ${
+            large ? "text-5xl sm:text-7xl lg:text-8xl" : "text-4xl sm:text-6xl"
+          }`}
+        >
+          {s.name}
+        </p>
       </div>
       <div className="flex items-start gap-5">
         <span
@@ -47,6 +58,57 @@ function OfferCard({
         </span>
       </div>
     </Link>
+  );
+}
+
+function GrowingOffer({ index }: { index: number }) {
+  const progress = useStackProgress() ?? idleProgress;
+  const [large, setLarge] = useState(false);
+
+  useMotionValueEvent(progress, "change", (v) => {
+    const next = v > 0.06;
+    setLarge((prev) => (prev === next ? prev : next));
+  });
+
+  return <OfferCard index={index} inverted large={large} />;
+}
+
+function OfferIntro({ active, total }: { active: number; total: string }) {
+  const progress = useStackProgress() ?? idleProgress;
+  const padTop = useTransform(progress, [0, 0.12], [96, 28]);
+  const titleScale = useTransform(progress, [0, 0.12], [1, 0.48]);
+  const titlePull = useTransform(progress, [0, 0.12], [32, 12]);
+  const titleBox = useTransform(progress, [0, 0.12], [172, 72]);
+  const bodyOpacity = useTransform(progress, [0, 0.07], [1, 0]);
+  const bodyMax = useTransform(progress, [0, 0.1], [88, 0]);
+  const bodyMargin = useTransform(progress, [0, 0.1], [16, 0]);
+
+  return (
+    <motion.div
+      className="mx-auto w-full max-w-[1400px] px-4 sm:px-8 lg:px-14"
+      style={{ paddingTop: padTop }}
+    >
+      <div className="flex items-start justify-between gap-6">
+        <p className="font-mono text-sm">
+          {offerIntro.index.split(" / ")[0]}
+          <span className="text-white/60"> / {offerIntro.index.split(" / ")[1]}</span>
+        </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/80">
+          Now {String(active + 1).padStart(2, "0")} / {total}
+        </p>
+      </div>
+      <motion.div className="origin-top-left overflow-hidden" style={{ height: titleBox, marginTop: titlePull }}>
+        <motion.h2 className="display max-w-[16ch] origin-top-left" style={{ scale: titleScale }}>
+          {offerIntro.title}
+        </motion.h2>
+      </motion.div>
+      <motion.p
+        className="max-w-lg overflow-hidden text-sm leading-6 text-white/75 sm:text-base"
+        style={{ opacity: bodyOpacity, maxHeight: bodyMax, marginTop: bodyMargin }}
+      >
+        {offerIntro.body}
+      </motion.p>
+    </motion.div>
   );
 }
 
@@ -79,28 +141,15 @@ export function ServiceBento() {
     <ScrollStack
       id="work"
       count={services.length}
+      hideHeader
       className="relative scroll-mt-24 bg-accent text-white"
-      header={(active) => (
-        <div className="mx-auto w-full max-w-[1400px] px-4 pt-24 sm:px-8 lg:px-14">
-          <div className="flex items-start justify-between gap-6">
-            <p className="font-mono text-sm">
-              {offerIntro.index.split(" / ")[0]}
-              <span className="text-white/60"> / {offerIntro.index.split(" / ")[1]}</span>
-            </p>
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/80">
-              Now {String(active + 1).padStart(2, "0")} / {total}
-            </p>
-          </div>
-          <h2 className="display mt-8 max-w-[16ch]">{offerIntro.title}</h2>
-          <p className="mt-4 max-w-lg text-sm leading-6 text-white/75 sm:text-base">{offerIntro.body}</p>
-        </div>
-      )}
+      header={(active) => <OfferIntro active={active} total={total} />}
     >
       {(active) => (
         <>
           {services.map((s, i) => (
             <StackSlide key={s.slug} index={i} active={active}>
-              <OfferCard index={i} inverted />
+              <GrowingOffer index={i} />
             </StackSlide>
           ))}
         </>

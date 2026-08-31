@@ -12,7 +12,7 @@ const files = {
   cream: { src: "/brand/revenueflow-cream.png", width: 975, height: 193 },
 } as const;
 
-export function BrandLogo({ variant = "ink", className = "h-[22px]", preload = false }: Props) {
+export function BrandLogo({ variant = "ink", className = "h-7", preload = false }: Props) {
   const file = files[variant];
   return (
     <Image

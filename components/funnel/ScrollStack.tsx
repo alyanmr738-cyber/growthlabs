@@ -1,7 +1,19 @@
 "use client";
 
-import { type ReactNode, useRef, useState } from "react";
-import { motion, useMotionValueEvent, useReducedMotion, useScroll } from "motion/react";
+import { createContext, type ReactNode, useContext, useRef, useState } from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useReducedMotion,
+  useScroll,
+  type MotionValue,
+} from "motion/react";
+
+const StackProgressContext = createContext<MotionValue<number> | null>(null);
+
+export function useStackProgress() {
+  return useContext(StackProgressContext);
+}
 
 export function ScrollStack({
   count,
@@ -9,12 +21,14 @@ export function ScrollStack({
   children,
   className = "",
   id,
+  hideHeader,
 }: {
   count: number;
   header?: (active: number) => ReactNode;
   children: (active: number) => ReactNode;
   className?: string;
   id?: string;
+  hideHeader?: boolean;
 }) {
   const trackRef = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -43,12 +57,15 @@ export function ScrollStack({
       id={id}
       ref={trackRef}
       className={className}
+      data-header-stack={hideHeader ? "" : undefined}
       style={{ height: `${Math.max(count, 1) * 85}vh` }}
     >
-      <div className="sticky top-0 flex h-svh flex-col overflow-hidden">
-        {header?.(active)}
-        <div className="relative min-h-0 flex-1">{children(active)}</div>
-      </div>
+      <StackProgressContext.Provider value={scrollYProgress}>
+        <div className="sticky top-0 flex h-svh flex-col overflow-hidden">
+          {header?.(active)}
+          <div className="relative min-h-0 flex-1">{children(active)}</div>
+        </div>
+      </StackProgressContext.Provider>
     </section>
   );
 }
