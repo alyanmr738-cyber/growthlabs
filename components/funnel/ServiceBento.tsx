@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, motionValue, useMotionValueEvent, useReducedMotion, useTransform } from "motion/react";
+import { motion, motionValue, useMotionTemplate, useMotionValueEvent, useReducedMotion, useTransform } from "motion/react";
 import { useState } from "react";
 import { services } from "@/lib/services";
 import { offerIntro, serviceSpine } from "@/lib/site";
@@ -33,7 +33,7 @@ function OfferCard({
         </p>
         <p
           className={`mt-4 tracking-tight transition-[font-size] duration-500 ${
-            large ? "text-5xl sm:text-7xl lg:text-8xl" : "text-4xl sm:text-6xl"
+            large ? "text-5xl sm:text-7xl" : "text-4xl sm:text-6xl"
           }`}
         >
           {s.name}
@@ -75,20 +75,20 @@ function GrowingOffer({ index }: { index: number }) {
 
 function OfferIntro({ active, total }: { active: number; total: string }) {
   const progress = useStackProgress() ?? idleProgress;
-  const padTop = useTransform(progress, [0, 0.12], [96, 28]);
-  const titleScale = useTransform(progress, [0, 0.12], [1, 0.48]);
-  const titlePull = useTransform(progress, [0, 0.12], [32, 12]);
-  const titleBox = useTransform(progress, [0, 0.12], [172, 72]);
-  const bodyOpacity = useTransform(progress, [0, 0.07], [1, 0]);
-  const bodyMax = useTransform(progress, [0, 0.1], [88, 0]);
-  const bodyMargin = useTransform(progress, [0, 0.1], [16, 0]);
+  const padTop = useTransform(progress, [0, 0.1], [56, 28]);
+  const cap = useTransform(progress, [0, 0.1], [6.4, 1.75]);
+  const titleSize = useMotionTemplate`min(clamp(2.5rem, 7.2vw, 6.4rem), ${cap}rem)`;
+  const titleMargin = useTransform(progress, [0, 0.1], [24, 8]);
+  const bodyOpacity = useTransform(progress, [0, 0.06], [1, 0]);
+  const bodyMax = useTransform(progress, [0, 0.08], [72, 0]);
+  const bodyMargin = useTransform(progress, [0, 0.08], [12, 0]);
 
   return (
     <motion.div
-      className="mx-auto w-full max-w-[1400px] px-4 sm:px-8 lg:px-14"
+      className="mx-auto w-full max-w-[1400px] shrink-0 px-4 sm:px-8 lg:px-14"
       style={{ paddingTop: padTop }}
     >
-      <div className="flex items-start justify-between gap-6">
+      <div className="flex items-baseline justify-between gap-6">
         <p className="font-mono text-sm">
           {offerIntro.index.split(" / ")[0]}
           <span className="text-white/60"> / {offerIntro.index.split(" / ")[1]}</span>
@@ -97,11 +97,12 @@ function OfferIntro({ active, total }: { active: number; total: string }) {
           Now {String(active + 1).padStart(2, "0")} / {total}
         </p>
       </div>
-      <motion.div className="origin-top-left overflow-hidden" style={{ height: titleBox, marginTop: titlePull }}>
-        <motion.h2 className="display max-w-[16ch] origin-top-left" style={{ scale: titleScale }}>
-          {offerIntro.title}
-        </motion.h2>
-      </motion.div>
+      <motion.h2
+        className="max-w-[16ch] font-medium tracking-tight"
+        style={{ fontSize: titleSize, marginTop: titleMargin, lineHeight: 0.95, letterSpacing: "-0.045em" }}
+      >
+        {offerIntro.title}
+      </motion.h2>
       <motion.p
         className="max-w-lg overflow-hidden text-sm leading-6 text-white/75 sm:text-base"
         style={{ opacity: bodyOpacity, maxHeight: bodyMax, marginTop: bodyMargin }}
@@ -148,7 +149,7 @@ export function ServiceBento() {
       {(active) => (
         <>
           {services.map((s, i) => (
-            <StackSlide key={s.slug} index={i} active={active}>
+            <StackSlide key={s.slug} index={i} active={active} align="start" className="pt-8 sm:pt-10">
               <GrowingOffer index={i} />
             </StackSlide>
           ))}

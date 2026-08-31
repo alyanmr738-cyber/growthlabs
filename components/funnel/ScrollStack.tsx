@@ -75,16 +75,18 @@ export function StackSlide({
   active,
   children,
   className = "",
+  align = "center",
 }: {
   index: number;
   active: number;
   children: ReactNode;
   className?: string;
+  align?: "center" | "start";
 }) {
   const on = index === active;
   return (
     <motion.div
-      className={`absolute inset-0 flex items-center ${className}`}
+      className={`absolute inset-0 flex ${align === "start" ? "items-start" : "items-center"} ${className}`}
       initial={false}
       animate={{
         opacity: on ? 1 : 0,
