@@ -3,9 +3,13 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { overlayMenu, site } from "@/lib/site";
+import { useOnBlue } from "@/components/funnel/useOnBlue";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const onBlue = useOnBlue();
+  const ink = open ? "text-ink/35" : onBlue ? "text-white" : "text-ink";
+  const dots = onBlue && !open ? "bg-white" : "bg-accent";
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -21,24 +25,24 @@ export function Header() {
           <Link
             href="/"
             prefetch
-            className={`text-[15px] tracking-tight ${open ? "text-ink/35" : "text-ink"}`}
+            className={`text-[15px] tracking-tight ${ink}`}
             onClick={() => setOpen(false)}
           >
             {site.name}
           </Link>
           <button
             type="button"
-            className="flex items-center gap-3 text-[15px] text-ink"
+            className={`flex items-center gap-3 text-[15px] ${onBlue && !open ? "text-white" : "text-ink"}`}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
             <span className={open ? "md:hidden" : undefined}>{open ? "Close" : "Menu"}</span>
             <span className="grid grid-cols-2 gap-[3px]" aria-hidden>
-              <i className="block h-1.5 w-1.5 bg-accent" />
-              <i className="block h-1.5 w-1.5 bg-accent" />
-              <i className="block h-1.5 w-1.5 bg-accent" />
-              <i className="block h-1.5 w-1.5 bg-accent" />
+              <i className={`block h-1.5 w-1.5 ${dots}`} />
+              <i className={`block h-1.5 w-1.5 ${dots}`} />
+              <i className={`block h-1.5 w-1.5 ${dots}`} />
+              <i className={`block h-1.5 w-1.5 ${dots}`} />
             </span>
           </button>
         </div>
@@ -54,14 +58,8 @@ export function Header() {
           />
           <aside className="fixed inset-y-0 right-0 z-50 flex w-full flex-col bg-accent text-white md:w-[min(42vw,34rem)]">
             <div className="flex h-[72px] items-center justify-between px-6 sm:px-8">
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em]">
-                ■ Menu / 01–05
-              </p>
-              <button
-                type="button"
-                className="text-[15px]"
-                onClick={() => setOpen(false)}
-              >
+              <p className="font-mono text-[11px] uppercase tracking-[0.16em]">■ Menu / 01–04</p>
+              <button type="button" className="text-[15px]" onClick={() => setOpen(false)}>
                 Close ×
               </button>
             </div>

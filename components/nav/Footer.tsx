@@ -4,7 +4,7 @@ import { services } from "@/lib/services";
 
 export function Footer() {
   return (
-    <footer className="border-t border-ink/10 bg-bg px-4 pb-24 pt-16 sm:px-8 md:pb-12 lg:px-14">
+    <footer className="relative z-20 border-t border-ink/10 bg-bg px-4 pb-24 pt-16 sm:px-8 md:pb-12 lg:px-14">
       <div className="mx-auto flex max-w-[1400px] flex-col gap-12 md:flex-row md:justify-between">
         <div>
           <p className="text-lg tracking-tight">{site.name}</p>

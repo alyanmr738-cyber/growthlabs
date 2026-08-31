@@ -1,36 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
 import { services } from "@/lib/services";
 import { serviceSpine } from "@/lib/site";
 
 export function ServiceBento() {
   const [active, setActive] = useState(0);
+  const rowRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const total = String(services.length).padStart(2, "0");
 
+  useEffect(() => {
+    const nodes = rowRefs.current.filter(Boolean) as HTMLAnchorElement[];
+    if (!nodes.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        const hit = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!hit) return;
+        const i = Number((hit.target as HTMLElement).dataset.offer);
+        if (!Number.isNaN(i)) setActive(i);
+      },
+      { rootMargin: "-42% 0px -42% 0px", threshold: [0.15, 0.4, 0.7] },
+    );
+    nodes.forEach((n) => io.observe(n));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <section id="work" className="relative scroll-mt-24 min-h-svh bg-accent text-white">
-      <div
-        className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px bg-white/25 lg:block"
-        aria-hidden
-      />
-      <div className="relative px-4 py-20 sm:px-8 sm:py-24 lg:px-14">
+    <section id="work" className="relative z-10 -mt-1 scroll-mt-24 pb-28 text-white">
+      <div className="px-4 sm:px-8 lg:px-14">
         <div className="mx-auto max-w-[1400px]">
-          <div className="flex items-start justify-between gap-6">
+          <div className="sticky top-[76px] z-20 mb-10 flex items-end justify-between gap-6 bg-transparent py-4">
             <p className="font-mono text-sm">
-              <span>02</span>
-              <span className="text-white/60"> / Selected work</span>
+              02<span className="text-white/60"> / Offer</span>
             </p>
             <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-white/80">
               Active {String(active + 1).padStart(2, "0")} / {total}
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-8 border-b border-white/20 pb-12 lg:grid-cols-2 lg:items-end">
-            <h2 className="display max-w-[12ch]">Selected work, shaped as systems.</h2>
-            <p className="max-w-md text-base leading-7 text-white/80 lg:justify-self-end">
-              Product, ads, CRM, and AI — resolved as one connected path to a booked call.
             </p>
           </div>
 
@@ -42,42 +50,43 @@ export function ServiceBento() {
               return (
                 <li key={s.slug}>
                   <Link
+                    ref={(el) => {
+                      rowRefs.current[i] = el;
+                    }}
                     href={`/services/${s.slug}`}
                     prefetch
+                    data-offer={i}
                     onMouseEnter={() => setActive(i)}
                     onFocus={() => setActive(i)}
-                    className={`grid items-center gap-4 border-b border-white/20 py-7 transition-opacity lg:grid-cols-[1fr_auto_1.15fr] ${
-                      on ? "opacity-100" : "opacity-40"
-                    }`}
+                    className="block border-b border-white/20 py-8 first:border-t sm:py-10"
                   >
-                    <div className="min-h-[1.5rem] lg:pr-8 lg:text-right">
-                      {on ? (
-                        <p className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/80">
-                          [ {meta?.meta} ]
-                        </p>
-                      ) : null}
-                    </div>
-                    <div className="flex items-center gap-5 lg:justify-center">
-                      <p className="text-3xl tracking-tight sm:text-4xl lg:min-w-[12ch] lg:text-right">
-                        {s.name}
-                      </p>
-                      <span className="grid h-9 w-9 shrink-0 place-items-center border border-white font-mono text-[11px]">
+                    <motion.div
+                      animate={{ opacity: on ? 1 : 0.38, x: on ? 0 : -8 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="grid items-center gap-4 lg:grid-cols-[auto_1fr_auto]"
+                    >
+                      <span className="grid h-10 w-10 place-items-center border border-white/80 font-mono text-[11px]">
                         {n}
                       </span>
-                    </div>
-                    <div className="flex items-start justify-between gap-4 lg:pl-8">
                       <div>
-                        <p className="font-mono text-[11px] uppercase tracking-[0.16em]">{meta?.tag}</p>
-                        {on ? (
-                          <p className="mt-2 max-w-sm text-sm leading-6 text-white/85">{meta?.blurb}</p>
-                        ) : null}
+                        <p className="text-3xl tracking-tight sm:text-5xl">{s.name}</p>
+                        <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.16em] text-white/70">
+                          {meta?.tag}
+                        </p>
+                        <motion.p
+                          animate={{ height: on ? "auto" : 0, opacity: on ? 1 : 0 }}
+                          className="overflow-hidden text-sm leading-6 text-white/85"
+                        >
+                          <span className="mt-3 block max-w-xl">{meta?.blurb}</span>
+                        </motion.p>
                       </div>
-                      {on ? (
-                        <span className="mt-1 text-lg" aria-hidden>
-                          ↗
-                        </span>
-                      ) : null}
-                    </div>
+                      <span
+                        className={`hidden text-2xl transition-opacity sm:block ${on ? "opacity-100" : "opacity-0"}`}
+                        aria-hidden
+                      >
+                        ↗
+                      </span>
+                    </motion.div>
                   </Link>
                 </li>
               );

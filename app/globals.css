@@ -93,22 +93,6 @@ body {
   clip-path: inset(0 calc(100% - var(--rail-left) - var(--rail-w)) 0 var(--rail-left));
 }
 
-.grid-lines-light {
-  background-image:
-    linear-gradient(to right, rgba(18, 18, 16, 0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(18, 18, 16, 0.08) 1px, transparent 1px);
-  background-size: 25% 100%, 100% 72px;
-  background-position: center;
-}
-
-.grid-lines-on-blue {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.18) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.18) 1px, transparent 1px);
-  background-size: 50% 100%, 100% 1px;
-  background-repeat: no-repeat, repeat-y;
-}
-
 .marquee-track {
   animation: marquee 40s linear infinite;
 }
