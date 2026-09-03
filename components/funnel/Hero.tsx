@@ -4,8 +4,8 @@ import { PillButton } from "@/components/ui/PillButton";
 import { LetsTalkMark } from "@/components/funnel/LetsTalkMark";
 
 const flow = [
-  { n: "01", title: "Enquiry", body: "Ad, form, or call" },
-  { n: "02", title: "Reply", body: "Text, chat, or voice" },
+  { n: "01", title: "Enquiry", body: "Ad, form, or call", accent: false },
+  { n: "02", title: "Reply", body: "Text, chat, or voice", accent: false },
   { n: "03", title: "Booked", body: "Real time on the calendar", accent: true },
 ] as const;
 
