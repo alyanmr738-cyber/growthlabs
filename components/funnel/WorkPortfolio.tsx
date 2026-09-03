@@ -4,7 +4,7 @@ import { workProjects, type WorkProject } from "@/lib/work";
 export function WorkPortfolio() {
   return (
     <section className="px-4 pb-8 pt-28 sm:px-8 lg:px-14">
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto max-w-[1470px]">
         <p className="font-mono text-sm">
           <span className="text-accent">01</span>
           <span className="text-faint"> / </span>
@@ -37,7 +37,7 @@ export function WorkPortfolio() {
         </ul>
       </div>
 
-      <div className="mx-auto mt-8 max-w-[1400px] space-y-24 py-16">
+      <div className="mx-auto mt-8 max-w-[1470px] space-y-24 py-16">
         {workProjects.map((project, i) => (
           <ProjectDetail key={project.slug} project={project} index={i} />
         ))}

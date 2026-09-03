@@ -3,8 +3,8 @@ export const site = {
   tagline: "We turn enquiries into booked appointments",
   description:
     "revenueflow sets up ads, tracking, GoHighLevel, follow-up, and AI chat and voice for growing businesses — so every lead gets a reply and a time on the calendar, not a place in an unread list.",
-  url: "https://growthlabs.example",
-  email: "hello@growthlabs.example",
+  url: "https://www.revflowagency.com",
+  email: "hello@revflowagency.com",
 } as const;
 
 export const nav = [

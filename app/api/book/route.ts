@@ -86,6 +86,9 @@ export async function POST(request: Request) {
       to: payload.email,
       template: {
         id: templateId,
+        variables: {
+          client_name: payload.name,
+        },
       },
     }),
   ]);

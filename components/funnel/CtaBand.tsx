@@ -4,7 +4,7 @@ import { contact, cta, site } from "@/lib/site";
 export function CtaBand() {
   return (
     <section id="contact" className="scroll-mt-24 px-4 py-16 sm:px-8 sm:py-24 lg:px-14">
-      <div className="mx-auto max-w-[1400px] border-y border-ink/10">
+      <div className="mx-auto max-w-[1470px] border-y border-ink/10">
         <div className="grid lg:grid-cols-2">
           <div className="border-b border-ink/10 py-16 lg:border-b-0 lg:border-r lg:py-20 lg:pr-12">
             <p className="font-mono text-sm">

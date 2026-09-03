@@ -25,7 +25,7 @@ export function Section({
       id={id}
       className={`px-4 py-16 sm:px-8 sm:py-24 lg:px-14 ${invert ? "bg-accent text-bg" : "bg-bg text-ink"} ${className}`}
     >
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto max-w-[1470px]">
         {(index || eyebrow || title || body) && (
           <header className="mb-12 max-w-4xl">
             {index || eyebrow ? (

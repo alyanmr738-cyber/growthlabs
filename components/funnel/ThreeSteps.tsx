@@ -4,7 +4,7 @@ import { cta, processIntro, steps } from "@/lib/site";
 export function ThreeSteps() {
   return (
     <section id="join" className="scroll-mt-24 px-4 py-20 sm:px-8 sm:py-28 lg:px-14">
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto max-w-[1470px]">
         <div className="flex flex-col items-center">
           <p className="rounded-full bg-accent px-6 py-3 text-center text-sm text-white sm:px-8 sm:text-base">
             Want more booked calls? Here’s how we start.

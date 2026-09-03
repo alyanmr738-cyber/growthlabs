@@ -6,7 +6,7 @@ import { BrandLogo } from "@/components/brand/BrandLogo";
 export function Footer() {
   return (
     <footer className="border-t border-ink/10 bg-bg px-4 pb-24 pt-16 sm:px-8 md:pb-12 lg:px-14">
-      <div className="mx-auto flex max-w-[1400px] flex-col gap-12 md:flex-row md:justify-between">
+      <div className="mx-auto flex max-w-[1470px] flex-col gap-12 md:flex-row md:justify-between">
         <div>
           <BrandLogo className="h-8" />
           <p className="mt-3 max-w-sm text-sm leading-6 text-muted">
@@ -43,7 +43,7 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto mt-16 flex max-w-[1400px] flex-col gap-3 font-mono text-xs text-muted sm:flex-row sm:justify-between">
+      <div className="mx-auto mt-16 flex max-w-[1470px] flex-col gap-3 font-mono text-xs text-muted sm:flex-row sm:justify-between">
         <div className="space-y-1">
           <p>
             © {new Date().getFullYear()} {site.name}. All rights reserved.

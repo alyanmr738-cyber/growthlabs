@@ -3,7 +3,7 @@ import { practice, practiceIntro, practiceSplit } from "@/lib/site";
 export function SystemDiagram() {
   return (
     <section id="practice" className="scroll-mt-24 px-4 py-20 sm:px-8 sm:py-28 lg:px-14">
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto max-w-[1470px]">
         <div className="flex items-start justify-between gap-6">
           <p className="font-mono text-sm">
             <span className="text-accent">{practiceIntro.index.split(" / ")[0]}</span>

@@ -5,7 +5,7 @@ import { featuredWork, type WorkProject } from "@/lib/work";
 export function FeaturedWork() {
   return (
     <section id="live-work" className="scroll-mt-24 bg-bg px-4 py-20 sm:px-8 sm:py-28 lg:px-14">
-      <div className="mx-auto max-w-[1400px]">
+      <div className="mx-auto max-w-[1470px]">
         <p className="font-mono text-sm">
           <span className="text-accent">04</span>
           <span className="text-faint"> / </span>

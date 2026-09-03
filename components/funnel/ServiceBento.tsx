@@ -25,7 +25,7 @@ function OfferCard({
     <Link
       href={`/services/${s.slug}`}
       prefetch
-      className="mx-auto flex w-full max-w-[1400px] flex-col gap-6 px-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-14"
+      className="mx-auto flex w-full max-w-[1470px] flex-col gap-6 px-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10 lg:px-14"
     >
       <div className="min-w-0">
         <p className={`font-mono text-[11px] uppercase tracking-[0.16em] ${inverted ? "text-white/70" : "text-muted"}`}>
@@ -85,7 +85,7 @@ function OfferIntro({ active, total }: { active: number; total: string }) {
 
   return (
     <motion.div
-      className="mx-auto w-full max-w-[1400px] shrink-0 px-4 sm:px-8 lg:px-14"
+      className="mx-auto w-full max-w-[1470px] shrink-0 px-4 sm:px-8 lg:px-14"
       style={{ paddingTop: padTop }}
     >
       <div className="flex items-baseline justify-between gap-6">
@@ -120,7 +120,7 @@ export function ServiceBento() {
   if (reduce) {
     return (
       <section id="work" className="relative scroll-mt-24 bg-accent py-20 text-white sm:py-24">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-8 lg:px-14">
+        <div className="mx-auto max-w-[1470px] px-4 sm:px-8 lg:px-14">
           <p className="font-mono text-sm">
             {offerIntro.index.split(" / ")[0]}
             <span className="text-white/60"> / {offerIntro.index.split(" / ")[1]}</span>

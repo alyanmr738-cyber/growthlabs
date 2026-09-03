@@ -35,7 +35,7 @@ export default async function ServicePage({ params }: Props) {
     <>
       <JsonLd data={faqJsonLd(service.faq)} />
       <section className="px-4 pb-12 pt-28 sm:px-8 lg:px-14">
-        <div className="mx-auto max-w-[1400px]">
+        <div className="mx-auto max-w-[1470px]">
           <p className="font-mono text-sm">
             <span className="text-accent">01</span> / {service.name}
           </p>

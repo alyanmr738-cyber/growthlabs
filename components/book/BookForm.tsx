@@ -49,7 +49,7 @@ export function BookForm() {
 
   if (sent) {
     return (
-      <div className="border border-ink/10 p-8">
+      <div className="border border-ink/10 p-8 lg:h-full">
         <p className="text-2xl tracking-tight">You’re on the list.</p>
         <p className="mt-3 text-sm leading-7 text-muted">
           Thanks — we got your details and sent a confirmation to your email. We’ll follow up about the
@@ -60,7 +60,7 @@ export function BookForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5 border border-ink/10 p-6 sm:p-8">
+    <form onSubmit={onSubmit} className="flex h-full flex-col space-y-5 border border-ink/10 p-6 sm:p-8">
       <Field label="Name" name="name" required />
       <Field label="Business" name="business" required />
       <Field label="Email" name="email" type="email" required />
