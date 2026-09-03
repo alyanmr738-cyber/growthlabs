@@ -26,7 +26,8 @@ function parseNotifyTo(raw: string | undefined) {
 
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.RESEND_FROM ?? `${site.name} <onboarding@resend.dev>`;
+  const from =
+    process.env.RESEND_FROM?.trim() || `${site.name} <no-reply@notify.revflowagency.com>`;
   const templateId = process.env.RESEND_TEMPLATE_ID;
   const notifyTo = parseNotifyTo(process.env.LEAD_NOTIFY_TO);
 
@@ -71,16 +72,17 @@ export async function POST(request: Request) {
     <p>${escapeHtml(payload.broken).replace(/\n/g, "<br />")}</p>
   `;
 
+  // Confirmation uses the published template defaults (from/subject).
+  // Team notify uses the verified domain from RESEND_FROM.
   const [notifyResult, confirmResult] = await Promise.all([
     resend.emails.send({
       from,
       to: notifyTo,
       replyTo: payload.email,
-      subject: `Strategy call request — ${payload.name} / ${payload.business}`,
+      subject: `Strategy call request - ${payload.name} / ${payload.business}`,
       html: notifyHtml,
     }),
     resend.emails.send({
-      from,
       to: payload.email,
       template: {
         id: templateId,
@@ -92,9 +94,22 @@ export async function POST(request: Request) {
     console.error("book form email failed", {
       notify: notifyResult.error,
       confirm: confirmResult.error,
+      from,
+      templateId,
+      notifyTo,
     });
+    const detail =
+      process.env.NODE_ENV !== "production"
+        ? {
+            notify: notifyResult.error,
+            confirm: confirmResult.error,
+          }
+        : undefined;
     return NextResponse.json(
-      { error: "We could not send that just now. Try again in a moment." },
+      {
+        error: "We could not send that just now. Try again in a moment.",
+        detail,
+      },
       { status: 502 },
     );
   }
