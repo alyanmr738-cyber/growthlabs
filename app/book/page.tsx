@@ -23,13 +23,13 @@ export default function BookPage() {
           <ul className="mt-8 space-y-3 text-sm leading-6 text-dim">
             <li>No lock-in on this call</li>
             <li>You keep every account we touch</li>
-            <li>A live calendar goes here when the domain is ready</li>
+            <li>We reply by email after you submit the form</li>
           </ul>
           <div className="mt-10 border border-ink/10 p-8">
-            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">Calendar placeholder</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-accent">What happens next</p>
             <p className="mt-3 max-w-sm text-sm text-muted">
-              Swap this block for a Cal.com or GoHighLevel calendar iframe. Until then, the form captures the
-              same fields.
+              Submit the form and we’ll get your details by email. A live calendar can replace this block
+              later when the domain is ready.
             </p>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function FaqPage() {
   return (
     <>
       <div className="pt-24">
-        <FaqSection title="Site-wide questions" />
+        <FaqSection title="Site-wide questions" showAllLink={false} />
       </div>
       {services.map((s) => (
         <Section key={s.slug} eyebrow={s.name} title={`${s.name} FAQ`} className="pt-4">

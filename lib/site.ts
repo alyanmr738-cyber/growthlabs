@@ -261,21 +261,46 @@ export const processStages = [
   {
     title: "We listen",
     body: "A kickoff call. We map how you sell, what you already use, and where enquiries die.",
+    detail:
+      "We walk your current path: ads, website, forms, phone, chat, CRM, and who replies when. We note what already works so we do not rebuild for sport.",
+    youBring: "Honest numbers on spend, volume, and where leads go quiet. Logins or a screen share of your tools.",
+    youGet: "A clear picture of the leak — written in plain language, not a 40-slide deck.",
+    timing: "One 30–60 minute call",
   },
   {
     title: "You approve the plan",
     body: "A simple diagram of ads, messages, and booking. Nothing gets built until you say yes.",
+    detail:
+      "You see the proposed path: what we touch first, what waits, and what success looks like (booked calls, not vanity clicks).",
+    youBring: "Decisions on offer, calendar rules, and who owns replies inside your team.",
+    youGet: "A short written plan and scope you can approve or push back on before any build starts.",
+    timing: "Usually 2–5 days after kickoff",
   },
   {
     title: "We build in your accounts",
     body: "Google, Facebook, tracking, and GoHighLevel stay yours. You get a short video update each week.",
+    detail:
+      "We work inside your ad accounts, GTM, and GoHighLevel — not a rented sandbox you cannot keep. Pipelines, forms, messages, and tracking go in with naming you can maintain.",
+    youBring: "Access, brand copy, and fast answers when we hit a fork (hours, scripts, routing).",
+    youGet: "Weekly loom-style updates, a living checklist, and assets that remain in your logins.",
+    timing: "Typically 1–3 weeks of build, depending on scope",
   },
   {
     title: "We test it for real",
     body: "We submit the form, trigger the ad lead, miss the call, and use the chat — like a customer would.",
+    detail:
+      "Every entrance gets a live test: form, Lead Ad, missed call, chat, and booking. We fix the odd cases before you announce anything.",
+    youBring: "A real phone and email to receive test messages. Someone to confirm calendar holds look right.",
+    youGet: "A pass/fail walkthrough of the full path — and fixes for anything that fails.",
+    timing: "2–4 days of QA before go-live",
   },
   {
     title: "Hand over and support",
     body: "Walkthrough, simple notes, and 30 days of help after go-live. Stay on if you want us to keep running it.",
+    detail:
+      "You leave with a short operating guide: what to change safely, what not to touch, and who to ping. Optional ongoing care for ads, CRM, and creative.",
+    youBring: "A decision on self-serve vs retained optimisation after the first month.",
+    youGet: "Handover session, notes, and 30 days of support included with the build.",
+    timing: "Go-live + 30 days support",
   },
 ] as const;

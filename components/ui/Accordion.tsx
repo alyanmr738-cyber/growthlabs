@@ -3,13 +3,14 @@
 import { useState } from "react";
 import type { FaqItem } from "@/lib/faq";
 
-export function Accordion({ items }: { items: FaqItem[] }) {
-  const [open, setOpen] = useState(0);
+export function Accordion({ items, start = 0 }: { items: FaqItem[]; start?: number }) {
+  const [open, setOpen] = useState(start === 0 ? 0 : -1);
 
   return (
     <div>
       {items.map((item, i) => {
         const isOpen = open === i;
+        const n = start + i + 1;
         return (
           <div key={item.q} className="border-t border-ink/10 last:border-b">
             <button
@@ -19,9 +20,7 @@ export function Accordion({ items }: { items: FaqItem[] }) {
               onClick={() => setOpen(isOpen ? -1 : i)}
             >
               <span className="flex gap-4">
-                <span className="mt-1 font-mono text-xs text-accent">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <span className="mt-1 font-mono text-xs text-accent">{String(n).padStart(2, "0")}</span>
                 <span className="text-lg tracking-tight text-ink sm:text-xl">{item.q}</span>
               </span>
               <span className="font-mono text-accent">{isOpen ? "–" : "+"}</span>

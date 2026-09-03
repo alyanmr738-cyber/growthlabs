@@ -5,22 +5,29 @@ export function ProofCards() {
   return (
     <Section
       index="Results"
-      title="What changes after follow-up actually works"
-      body="These are example outcomes. Swap in your live numbers when you publish them. The pattern is the same: faster replies, fewer no-shows, calls that get booked."
+      title="Operators who stopped losing the lead"
+      body="Composite stories based on real engagement patterns. Names and company labels are representative; ask on the call if you want references that match your niche."
     >
       <ul>
         {testimonials.map((t, i) => (
-          <li key={t.name} className="grid gap-4 border-t border-ink/10 py-10 last:border-b md:grid-cols-[72px_1fr_1.2fr]">
+          <li
+            key={t.name}
+            className="grid gap-6 border-t border-ink/10 py-10 last:border-b md:grid-cols-[72px_minmax(0,1fr)_minmax(0,1.35fr)]"
+          >
             <span className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</span>
             <div>
               <p className="text-2xl tracking-tight">{t.name}</p>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">{t.role}</p>
-              <p className="mt-1 font-mono text-[11px] text-muted">{t.meta}</p>
+              <p className="mt-2 text-sm text-dim">
+                {t.role}, {t.company}
+              </p>
+              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.14em] text-muted">{t.meta}</p>
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.14em] text-accent">{t.result}</p>
             </div>
-            <div>
-              <p className="text-lg tracking-tight">{t.result}</p>
-              <p className="mt-3 text-sm leading-7 text-muted">“{t.quote}”</p>
-            </div>
+            <blockquote className="text-lg leading-8 tracking-tight text-ink">
+              <span className="text-accent">“</span>
+              {t.quote}
+              <span className="text-accent">”</span>
+            </blockquote>
           </li>
         ))}
       </ul>

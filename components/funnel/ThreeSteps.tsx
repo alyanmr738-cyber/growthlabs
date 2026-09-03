@@ -53,14 +53,15 @@ export function ThreeSteps() {
           ))}
         </ol>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-full bg-accent px-6 py-4 text-white sm:flex-row sm:items-center sm:px-8">
+        <div className="mt-10 flex flex-col gap-4 rounded-2xl bg-accent p-5 text-white sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:rounded-full sm:px-8 sm:py-4">
           <p className="text-lg tracking-tight sm:text-xl">
-            <span className="font-medium">Ready?</span> Book a 30-minute call.
+            <span className="font-medium">Ready?</span>
+            <span className="hidden sm:inline"> Book a 30-minute call.</span>
           </p>
           <Link
             href={cta.primary.href}
             prefetch
-            className="inline-flex h-12 items-center rounded-full bg-white px-6 text-sm text-accent sm:px-8"
+            className="inline-flex h-12 w-full shrink-0 items-center justify-center rounded-full bg-white px-6 text-sm text-accent sm:w-auto sm:px-8"
           >
             {cta.primary.label}
           </Link>

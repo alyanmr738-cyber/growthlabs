@@ -112,45 +112,47 @@ export function Header() {
           mode === "hidden" ? "pointer-events-none -translate-y-full opacity-0" : "translate-y-0 opacity-100"
         } ${mode === "invert" ? "border-white/25 bg-transparent" : "border-ink/10 bg-bg"}`}
       >
-        <div className="mx-auto flex h-[72px] max-w-[1470px] items-center justify-between px-4 sm:px-8 lg:px-14">
-          <Link
-            href="/"
-            prefetch
-            className={`flex items-center transition-opacity duration-300 ${open ? "opacity-35" : "opacity-100"}`}
-            onClick={() => setOpen(false)}
-          >
-            <span className="relative inline-grid">
-              <BrandLogo
-                preload
-                className={`col-start-1 row-start-1 h-7 transition-opacity duration-300 ${
-                  mode === "invert" ? "opacity-0" : "opacity-100"
-                }`}
-              />
-              <BrandLogo
-                variant="cream"
-                className={`col-start-1 row-start-1 h-7 transition-opacity duration-300 ${
-                  mode === "invert" ? "opacity-100" : "opacity-0"
-                }`}
-              />
-            </span>
-          </Link>
-          {mode === "invert" ? null : (
-            <button
-              type="button"
-              className="flex items-center gap-3 text-[15px] text-ink"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              onClick={() => setOpen((v) => !v)}
+        <div className="px-4 sm:px-8 lg:px-14">
+          <div className="mx-auto flex h-[72px] max-w-[1470px] items-center justify-between">
+            <Link
+              href="/"
+              prefetch
+              className={`flex items-center transition-opacity duration-300 ${open ? "opacity-35" : "opacity-100"}`}
+              onClick={() => setOpen(false)}
             >
-              <span className={open ? "md:hidden" : undefined}>{open ? "Close" : "Menu"}</span>
-              <span className="grid grid-cols-2 gap-[3px]" aria-hidden>
-                <i className="block h-1.5 w-1.5 bg-accent" />
-                <i className="block h-1.5 w-1.5 bg-accent" />
-                <i className="block h-1.5 w-1.5 bg-accent" />
-                <i className="block h-1.5 w-1.5 bg-accent" />
+              <span className="relative inline-grid">
+                <BrandLogo
+                  preload
+                  className={`col-start-1 row-start-1 h-7 transition-opacity duration-300 ${
+                    mode === "invert" ? "opacity-0" : "opacity-100"
+                  }`}
+                />
+                <BrandLogo
+                  variant="cream"
+                  className={`col-start-1 row-start-1 h-7 transition-opacity duration-300 ${
+                    mode === "invert" ? "opacity-100" : "opacity-0"
+                  }`}
+                />
               </span>
-            </button>
-          )}
+            </Link>
+            {mode === "invert" ? null : (
+              <button
+                type="button"
+                className="flex items-center gap-3 text-[15px] text-ink"
+                aria-label={open ? "Close menu" : "Open menu"}
+                aria-expanded={open}
+                onClick={() => setOpen((v) => !v)}
+              >
+                <span className={open ? "md:hidden" : undefined}>{open ? "Close" : "Menu"}</span>
+                <span className="grid grid-cols-2 gap-[3px]" aria-hidden>
+                  <i className="block h-1.5 w-1.5 bg-accent" />
+                  <i className="block h-1.5 w-1.5 bg-accent" />
+                  <i className="block h-1.5 w-1.5 bg-accent" />
+                  <i className="block h-1.5 w-1.5 bg-accent" />
+                </span>
+              </button>
+            )}
+          </div>
         </div>
       </header>
 

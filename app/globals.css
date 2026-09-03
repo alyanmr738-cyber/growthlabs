@@ -80,7 +80,7 @@ body {
     linear-gradient(to right, rgba(18, 18, 16, 0.08) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(18, 18, 16, 0.08) 1px, transparent 1px);
   background-size: 25% 100%, 100% 72px;
-  background-position: center;
+  background-position: 0 0;
 }
 
 .grid-lines-on-blue {

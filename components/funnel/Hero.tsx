@@ -22,7 +22,9 @@ export function Hero() {
                 {cta.secondary.label}
               </PillButton>
             </div>
-            <LetsTalkMark className="hidden shrink-0 md:inline-block" />
+            <span className="hidden shrink-0 md:inline-grid">
+              <LetsTalkMark />
+            </span>
           </div>
           <ul className="mt-16 grid gap-8 border-t border-ink/10 pt-10 sm:grid-cols-3">
             {promises.map((item) => (

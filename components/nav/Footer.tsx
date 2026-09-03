@@ -44,9 +44,14 @@ export function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-16 flex max-w-[1400px] flex-col gap-3 font-mono text-xs text-muted sm:flex-row sm:justify-between">
-        <p>
-          {site.name} © {new Date().getFullYear()}
-        </p>
+        <div className="space-y-1">
+          <p>
+            © {new Date().getFullYear()} {site.name}. All rights reserved.
+          </p>
+          <p className="max-w-xl text-[10px] leading-4 tracking-normal text-faint normal-case">
+            {site.name} name and logo are trademarks of {site.name}. Third-party marks belong to their owners.
+          </p>
+        </div>
         <div className="flex gap-5">
           <Link href="/privacy" className="hover:text-accent">
             Privacy

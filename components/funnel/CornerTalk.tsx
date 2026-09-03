@@ -7,5 +7,9 @@ export function CornerTalk() {
   const pathname = usePathname();
   if (pathname === "/") return null;
 
-  return <LetsTalkMark className="fixed right-4 bottom-8 z-30 hidden md:block lg:right-14" />;
+  return (
+    <div className="pointer-events-none fixed right-4 bottom-8 z-40 hidden md:block lg:right-14">
+      <LetsTalkMark className="pointer-events-auto" />
+    </div>
+  );
 }

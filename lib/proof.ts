@@ -1,51 +1,30 @@
 export const testimonials = [
   {
-    name: "Amira K.",
-    role: "Founder, multi-location clinic",
-    meta: "Healthcare · GCC",
-    initials: "AK",
-    result: "Speed-to-lead under 60 seconds",
+    name: "Amira Khalil",
+    role: "Founder",
+    company: "Northshore Dental Group",
+    meta: "3 clinics · Dubai / Sharjah",
+    result: "First reply under 60 seconds on Meta leads",
     quote:
-      "Leads from Meta used to sit in a spreadsheet overnight. Now they get a text, a bot qualifies, and the appointment is on the calendar before the front desk opens.",
+      "Before revenueflow, Friday night Lead Ads sat until Sunday. Now the patient gets a text in under a minute, the bot asks three questions, and a consult is on the calendar. Front desk opens to booked slots, not a spreadsheet.",
   },
   {
-    name: "Daniel R.",
-    role: "Owner, home services group",
-    meta: "Restoration · US",
-    initials: "DR",
-    result: "No-shows cut after reminder flows",
+    name: "Marcus Hale",
+    role: "Owner",
+    company: "Hale Restoration Co.",
+    meta: "Home services · Austin, TX",
+    result: "No-show rate down after reminder + text-back flows",
     quote:
-      "Google Ads were sending volume. The leak was follow-up. Growth Labs wired GTM, the CRM, and reminders so we stop paying for leads that never get a call.",
+      "We were spending on Google and still missing the job because nobody called back fast enough. They wired missed-call text-back, reminders, and offline conversions. Same ad budget — a lot more people who actually show up.",
   },
   {
-    name: "Priya S.",
-    role: "Director, coaching brand",
-    meta: "Education · UK",
-    initials: "PS",
-    result: "Voice AI covering nights and weekends",
+    name: "Priya Mehta",
+    role: "Director of Enrolment",
+    company: "Summit Coaching",
+    meta: "High-ticket coaching · London",
+    result: "Nights and weekends covered without a night shift",
     quote:
-      "The voice agent answers, qualifies against our script, and books into the round-robin calendar. Hot callers still go to a human. We stopped missing 9pm inquiries.",
-  },
-] as const;
-
-export const caseStudies = [
-  {
-    title: "Clinic lead engine",
-    niche: "Healthcare",
-    result: "Ad lead → SMS → booked consult",
-    body: "Meta Lead Ads into GoHighLevel, Conversation AI on the site, and GTM firing qualified bookings back to Meta so spend follows real appointments — not form dumps.",
-  },
-  {
-    title: "Home services pipeline",
-    niche: "Local services",
-    result: "Missed-call text-back + job booking",
-    body: "Google Ads search, call tracking, missed-call text-back, and a pipeline that matches how jobs actually close. Offline conversions close the loop in Google Ads.",
-  },
-  {
-    title: "Coach high-ticket funnel",
-    niche: "Coaching",
-    result: "VSL → qualify bot → calendar",
-    body: "Funnel pages in GoHighLevel, nurture sequences, and a chatbot that books application calls. Tracking via GTM so Google and Meta see the same events.",
+      "Our voice agent answers after 7pm, runs the script, and books into round-robin. Hot callers still get a human. We stopped waking up to 12 missed enquiries and a quiet calendar.",
   },
 ] as const;
 
