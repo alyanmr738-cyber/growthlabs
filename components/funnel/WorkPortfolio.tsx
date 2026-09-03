@@ -13,8 +13,8 @@ export function WorkPortfolio() {
         <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
           <h1 className="display max-w-[14ch]">Work we have shipped</h1>
           <p className="max-w-md text-base leading-7 text-muted">
-            CRM rebuilds, speed-to-lead, ads and tracking, funnels, and AI that books. Client names stay
-            confidential where required — the systems are real.
+            CRM rebuilds, speed-to-lead, ads and tracking, funnels, and AI that books. Details stay
+            confidential where clients ask — the systems are real.
           </p>
         </div>
 

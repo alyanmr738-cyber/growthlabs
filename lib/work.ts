@@ -30,7 +30,7 @@ export const workProjects: WorkProject[] = [
     client: "Confidential · high-volume lead account",
     result: "2,480 contacts organised · follow-up on autopilot",
     summary:
-      "A live CRM rebuild: pipelines, intake workflows, SMS/email branches, reporting, and phone setup — not a demo account.",
+      "A live CRM rebuild: pipelines, intake workflows, SMS/email branches, reporting, and phone setup.",
     body: "The team was drowning in volume and living between spreadsheets and inboxes. We mapped stages, rebuilt pipelines, turned on timed follow-up, and set phone/SMS so messages actually send. Names are hidden. The structure is real.",
     tags: ["GoHighLevel", "Automations", "SMS", "Reporting"],
     featured: true,
@@ -46,7 +46,7 @@ export const workProjects: WorkProject[] = [
         width: 1280,
         height: 687,
         alt: "GoHighLevel opportunities overview from a live account",
-        caption: "A live opportunities view — volume you can manage, not a five-row demo.",
+        caption: "A live opportunities view — volume you can manage day to day.",
       },
       {
         src: "/work/pipeline-sales.jpg",
@@ -96,7 +96,7 @@ export const workProjects: WorkProject[] = [
       "A clear next action for the team, even when volume is high.",
       "Less copy-paste between tools. Intake, messages, and stages live in one place.",
     ],
-    note: "Client names, messages, and phone numbers were removed. Pipeline values are not claimed as cash collected.",
+    note: "Sensitive client details are redacted. Pipeline stage counts show system volume, not cash collected.",
   },
   {
     slug: "clinic-speed-to-lead",

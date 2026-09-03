@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const service = getService(slug);
   if (!service) return {};
   return {
-    title: service.title.replace(" | Growth Labs", ""),
+    title: service.title.replace(" | revenueflow", ""),
     description: service.description,
   };
 }

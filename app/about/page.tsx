@@ -6,7 +6,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Growth Labs is one team that connects ads, follow-up, and booking so enquiries become appointments.",
+    "revenueflow is one team that connects ads, follow-up, and booking so enquiries become appointments.",
 };
 
 export default function AboutPage() {
@@ -31,8 +31,7 @@ export default function AboutPage() {
             <h2 className="text-2xl tracking-tight">How we work</h2>
             <p className="mt-4 text-sm leading-7 text-muted">
               Inside your accounts. A written plan. Short weekly videos. We test like a customer before
-              go-live. Then 30 days of support. The brand name is a placeholder until the domain is live —
-              the offer is not.
+              go-live. Then 30 days of support.
             </p>
           </div>
         </div>

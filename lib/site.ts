@@ -4,7 +4,7 @@ export const site = {
   description:
     "revenueflow sets up ads, tracking, GoHighLevel, follow-up, and AI chat and voice for growing businesses — so every lead gets a reply and a time on the calendar, not a place in an unread list.",
   url: "https://www.revflowagency.com",
-  email: "hello@revflowagency.com",
+  email: "hello@inquiry.revflowagency.com",
 } as const;
 
 export const nav = [
@@ -292,7 +292,7 @@ export const processStages = [
       "Every entrance gets a live test: form, Lead Ad, missed call, chat, and booking. We fix the odd cases before you announce anything.",
     youBring: "A real phone and email to receive test messages. Someone to confirm calendar holds look right.",
     youGet: "A pass/fail walkthrough of the full path — and fixes for anything that fails.",
-    timing: "2–4 days of QA before go-live",
+    timing: "2–4 days of live testing before go-live",
   },
   {
     title: "Hand over and support",

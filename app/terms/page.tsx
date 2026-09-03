@@ -50,7 +50,7 @@ export default function TermsPage() {
             the work is used after handoff.
           </p>
           <p>
-            Case studies, screenshots, statistics, and quotes describe past or illustrative work. They are not
+            Case studies, screenshots, statistics, and quotes describe past client work. They are not
             promises that you will get the same result.
           </p>
         </div>

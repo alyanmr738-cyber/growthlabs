@@ -6,7 +6,7 @@ export function ProofCards() {
     <Section
       index="Results"
       title="Operators who stopped losing the lead"
-      body="Composite stories based on real engagement patterns. Names and company labels are representative; ask on the call if you want references that match your niche."
+      body="Outcomes from work we’ve shipped. Ask on the call if you want references in your niche."
     >
       <ul>
         {testimonials.map((t, i) => (

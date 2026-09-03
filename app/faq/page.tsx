@@ -8,7 +8,7 @@ import { Section } from "@/components/ui/Section";
 export const metadata: Metadata = {
   title: "FAQ",
   description:
-    "Answers about Growth Labs services: GoHighLevel, automations, AI chat and voice, Google Ads, GTM, and Meta Ads.",
+    "Answers about revenueflow services: GoHighLevel, automations, AI chat and voice, Google Ads, GTM, and Meta Ads.",
 };
 
 export default function FaqPage() {
