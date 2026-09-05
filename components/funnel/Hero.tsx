@@ -2,19 +2,14 @@ import { cta, hero, promises } from "@/lib/site";
 import { LiveMeta } from "@/components/funnel/LiveMeta";
 import { PillButton } from "@/components/ui/PillButton";
 import { LetsTalkMark } from "@/components/funnel/LetsTalkMark";
-
-const flow = [
-  { n: "01", title: "Enquiry", body: "Ad, form, or call", accent: false },
-  { n: "02", title: "Reply", body: "Text, chat, or voice", accent: false },
-  { n: "03", title: "Booked", body: "Real time on the calendar", accent: true },
-] as const;
+import { HeroFunnel } from "@/components/funnel/HeroFunnel";
 
 export function Hero() {
   return (
     <section id="signal" className="relative min-h-svh scroll-mt-24">
       <div className="flex min-h-svh flex-col justify-between px-4 pb-8 pt-28 sm:px-8 lg:px-14">
         <div className="mx-auto w-full max-w-[1470px]">
-          <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
+          <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-16">
             <div>
               <p className="font-mono text-sm">
                 <span className="text-accent">01</span>
@@ -25,34 +20,7 @@ export function Hero() {
               <p className="mt-8 max-w-2xl text-base leading-7 text-muted sm:text-lg">{hero.lede}</p>
             </div>
 
-            <aside aria-label="How an enquiry becomes a booking" className="hidden lg:block">
-              <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint">The path</p>
-              <ol className="mt-8">
-                {flow.map((step, i) => (
-                  <li key={step.n} className="relative flex gap-5 pb-10 last:pb-0">
-                    {i < flow.length - 1 ? (
-                      <span
-                        aria-hidden
-                        className="absolute top-9 bottom-0 left-[17px] w-px bg-ink/15"
-                      />
-                    ) : null}
-                    <span
-                      className={`relative z-10 grid h-9 w-9 shrink-0 place-items-center font-mono text-[11px] ${
-                        step.accent ? "bg-accent text-white" : "border border-ink/15 bg-bg text-ink"
-                      }`}
-                    >
-                      {step.n}
-                    </span>
-                    <div className="pt-1">
-                      <p className={`text-2xl tracking-tight ${step.accent ? "text-accent" : "text-ink"}`}>
-                        {step.title}
-                      </p>
-                      <p className="mt-1 text-sm text-muted">{step.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </aside>
+            <HeroFunnel />
           </div>
 
           <div className="mt-12 flex items-end justify-between gap-8">
